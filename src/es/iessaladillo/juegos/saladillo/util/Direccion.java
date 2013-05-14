@@ -1,6 +1,7 @@
 package es.iessaladillo.juegos.saladillo.util;
 
 
+
 /**
  * @author Javier Graña
  * Define las diferentes direcciones en un entorno bidimensional
