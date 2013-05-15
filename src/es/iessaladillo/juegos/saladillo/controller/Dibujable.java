@@ -1,6 +1,8 @@
 package es.iessaladillo.juegos.saladillo.controller;
 
 
+
+
 /** 
  * Interfaz común para interfaz y modelo que describe un elemento que se puede dibujar en un mapa de un juego de bloques
  * 
