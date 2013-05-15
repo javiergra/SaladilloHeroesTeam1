@@ -5,4 +5,4 @@ package es.iessaladillo.juegos.saladillo.exceptions;
 public class MapaErroneoException extends Exception{
 
 }
-//Prueba PUSH raul
+//Prueba PUSH raul 2
