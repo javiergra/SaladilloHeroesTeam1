@@ -2,12 +2,12 @@ package es.iessaladillo.juegos.saladillo.controller;
 
 
 
-
+//Borrar
 /** 
- * Interfaz común para interfaz y modelo que describe un elemento que se puede dibujar en un mapa de un juego de bloques
+ * Interfaz comï¿½n para interfaz y modelo que describe un elemento que se puede dibujar en un mapa de un juego de bloques
  * 
  * 
- * @author Javier Graña
+ * @author Javier Graï¿½a
  * @version 1.0
  */
 
