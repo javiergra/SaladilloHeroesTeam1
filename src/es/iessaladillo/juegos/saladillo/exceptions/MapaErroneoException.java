@@ -5,4 +5,3 @@ package es.iessaladillo.juegos.saladillo.exceptions;
 public class MapaErroneoException extends Exception{
 
 }
-//Prueba PUSH Oscar222224
