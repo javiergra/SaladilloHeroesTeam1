@@ -4,7 +4,7 @@ package es.iessaladillo.juegos.saladillo.facade;
  * @author Raul Sanchez
  *
  */
-public interface Action {
+public interface Accion {
 
 	/**Ejecuta la accion
 	 * @return Devuelve un objeto.

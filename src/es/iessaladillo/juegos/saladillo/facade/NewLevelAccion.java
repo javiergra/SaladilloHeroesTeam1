@@ -1,7 +1,7 @@
 package es.iessaladillo.juegos.saladillo.facade;
 
 
-public class NewLevelAction implements Action{
+public class NewLevelAccion implements Accion{
 
 	public  Object execute() {
 		return null;

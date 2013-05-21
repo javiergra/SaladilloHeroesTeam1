@@ -1,6 +1,6 @@
 package es.iessaladillo.juegos.saladillo.facade;
 
-public class MovePJAction implements Action{
+public class ResetLevelAccion implements Accion{
 
 	public  Object execute() {
 		return null;
