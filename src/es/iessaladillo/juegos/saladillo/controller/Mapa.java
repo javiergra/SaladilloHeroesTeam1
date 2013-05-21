@@ -1,5 +1,5 @@
 package es.iessaladillo.juegos.saladillo.controller;
-//Esta clase esta mal.XQ? Y por qué?
+//Esta clase esta mal.XQ? Y por qué? Pueba Oscar Moreno
 
 import java.util.ArrayList;
 import java.util.Iterator;
