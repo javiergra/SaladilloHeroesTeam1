@@ -1,4 +1,4 @@
-package es.iessaladillo.juegos.saladillo.facade;
+package es.iessaladillo.juegos.saladillo.Acciones;
 
 /**
  * @author Raul Sanchez
