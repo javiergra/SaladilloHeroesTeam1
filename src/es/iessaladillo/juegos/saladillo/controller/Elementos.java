@@ -3,8 +3,8 @@ package es.iessaladillo.juegos.saladillo.controller;
 
 public class Elementos implements Dibujable{
 
-	private byte X;
-	private byte Y;
+	private int X;
+	private int Y;
 	private String nombreImagen;
 	private String tipoImagen;
 	private Dibujable fondo;
@@ -17,19 +17,19 @@ public class Elementos implements Dibujable{
 		this.fondo = fondo;
 	}
 	
-	public byte getX() {
+	public int getX() {
 		return X;
 	}
 
-	public void setX(byte x) {
+	public void setX(int x) {
 		X = x;
 	}
 
-	public byte getY() {
+	public int getY() {
 		return Y;
 	}
 
-	public void setY(byte y) {
+	public void setY(int y) {
 		Y = y;
 	}
 

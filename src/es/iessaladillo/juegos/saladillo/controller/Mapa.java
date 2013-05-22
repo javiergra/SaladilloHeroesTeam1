@@ -1,29 +1,37 @@
 package es.iessaladillo.juegos.saladillo.controller;
 
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
 import es.iessaladillo.juegos.saladillo.util.*;
 
 public class Mapa implements MapaInterface{
-	Dibujable[][] mapa=new Dibujable[14][14];
-	
-	public void ponerMapa(){
-	ArrayList<Entidad> entidad = null;
-	
-	}
+	Elementos[][] mapa=new Elementos[14][14];
 	
 	@Override
 	public Dibujable obtenerPosicion(Posicion posicion) {
-		// TODO Auto-generated method stub
-		return null;
+		Elementos elemento = null;
+		elemento.setX(posicion.getX());
+		elemento.setY(posicion.getY());
+		return elemento;
 	}
 	
 	@Override
 	public Posicion getPosicionHeroe() {
-		// TODO Auto-generated method stub
-		return null;
+		Posicion posicion = new Posicion(0,0);
+		Elementos elemento;
+		
+		for (int x=0; x<mapa.length; x++){
+			for (int y=0; y <mapa[0].length; y++){
+				elemento = mapa[x][y];
+				if (elemento.getNombreImagen().equals("Heroe")){
+					posicion.setX(x);
+					posicion.setY(y);
+					x = mapa.length;
+					y = mapa[0].length;
+				}
+				
+			}
+		}
+		return posicion;
 	}
 	
 	@Override
@@ -35,7 +43,7 @@ public class Mapa implements MapaInterface{
 		y = posicion.getY();
 		
 		if (mapa[x][y] == null)
-			mapa[x][y] = dibujable;
+			mapa[x][y] = (Elementos) dibujable;
 		else {
 			contenido = mapa[x][y];
 			if (contenido.contieneFondo())
