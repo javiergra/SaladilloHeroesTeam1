@@ -12,5 +12,5 @@ public class DiamantesEnMapaAccion implements Accion{
 	public Object execute() {
 		return diamantes;
 	}
-//Prueba para Oscar
+
 }
