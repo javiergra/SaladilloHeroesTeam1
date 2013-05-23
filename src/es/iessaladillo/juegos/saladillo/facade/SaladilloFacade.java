@@ -34,7 +34,9 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 	public MapaInterface mover(Direccion direccion) {
 		Posicion posicion;
 		Dibujable heroe;
-		
+		//A la hora de mover, se podría aprovechar y enviar la posicion antigua del heroe al
+		//ArrayList de ConjuntoPosiciones para el historial de movimiento. Se podría hacer llamando al
+		//metodo posicionesAActualizar()?
 		posicion = mapa.getPosicionHeroe();
 		heroe = mapa.obtenerPosicion(posicion);
 		

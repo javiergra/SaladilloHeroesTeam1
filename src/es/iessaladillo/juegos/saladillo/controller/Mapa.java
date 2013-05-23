@@ -12,7 +12,7 @@ public class Mapa implements MapaInterface, Cloneable{
 
 	public Mapa(Entidad[] entidades) {
 		mapaFromEntidades=entidades;
-	}		// RellenarMapa? de Entidades[] a Elementos[][] NO??
+	}		// RellenarMapa? de Entidades[] a Elementos[][] NO?? Raul-> Creo que esa es la idea, aunq no me gusta mucho.
 
 	@Override
 	public Dibujable obtenerPosicion(Posicion posicion) {
@@ -48,6 +48,7 @@ public class Mapa implements MapaInterface, Cloneable{
 				dibujable.setFondo(contenido);
 				mapa[x][y] = (Elementos) dibujable;
 			}	// al mover, ¿Heroe o Teletransporte primero? Preguntar a Javier
+				// Raul-> Creo que la idea es heroe-teletrans-backgr.
 			else{
 				contenido.setFondo(dibujable);
 				mapa[x][y] = contenido;

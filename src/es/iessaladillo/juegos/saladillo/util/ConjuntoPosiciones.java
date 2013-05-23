@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 
-
-
 public class ConjuntoPosiciones {
 	
 	private ArrayList <Posicion> posiciones;
