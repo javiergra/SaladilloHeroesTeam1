@@ -15,13 +15,13 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 
 	@Override
 	public void cargarMapa(Entidad[] entidades) {
-		// TODO Auto-generated method stub
+		// Historial de movimientos
 		
 	}
 
 	@Override
 	public void cargarMapa(MapaInterface mapa) {
-		// TODO Auto-generated method stub
+		// Dibujar en ASCII
 		
 	}
 
