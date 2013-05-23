@@ -7,6 +7,8 @@ import es.iessaladillo.juegos.saladillo.util.*;
 
 public class SaladilloFacade implements SaladilloFacadeDelegate {
 
+	int diamantes;
+	
 	@Override
 	public MapaInterface mapaFromEntidades(Entidad[] entidades) {
 		Accion accion=new MapaFromEntidadesAccion(entidades);
@@ -15,13 +17,13 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 
 	@Override
 	public void cargarMapa(Entidad[] entidades) {
-		// Historial de movimientos
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void cargarMapa(MapaInterface mapa) {
-		// Dibujar en ASCII
+		// TODO Auto-generated method stub
 		
 	}
 
@@ -45,8 +47,8 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 
 	@Override
 	public int diamantesEnMapa() {
-		// TODO Auto-generated method stub
-		return 0;
+		Accion accion=new DiamantesEnMapaAccion(diamantes);
+		return ((Integer) accion.execute()).intValue();
 	}
 
 	@Override
