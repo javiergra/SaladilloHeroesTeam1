@@ -1,2 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_amiIkL4hEeKT4ImIGN1bQA" name="model"/>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_0GiLEMOSEeKCH_Dmz7pk3A" name="model">
+  <ownedComment xmi:id="_qOgEEMOUEeKCH_Dmz7pk3A">
+    <body>*crear mapa: crea un mapa a partir de un conjunto de entidadades
+*cargar mapa : carga un mapa a partir de un conjunto de entidades
+*mover heroe: mueve al heroe en la direccion indicada.
+*reiniciar nivel: vuelve al principio del nivel indicado.
+*indicar posicion heroe: indica la posicion actual del heroe.
+*indicar numero de diamantes pendientes: indica los diamantes que quedan en la pantalla por recoger.
+*devolver posiciones: devuelve las posiciones que han cambiado tras el ultimo movimiento.</body>
+  </ownedComment>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_3rITMMOSEeKCH_Dmz7pk3A" name="crear mapa"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_4cKukMOSEeKCH_Dmz7pk3A" name="cargar mapa"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_414PEMOSEeKCH_Dmz7pk3A" name="mover heroe"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_6Qpj8MOSEeKCH_Dmz7pk3A" name="reiniciar nivel"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_7PwQgMOSEeKCH_Dmz7pk3A" name="indicar posicion heroe"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_AkSsQMOTEeKCH_Dmz7pk3A" name="indicar numero diamantes pendientes"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_PchPUMOUEeKCH_Dmz7pk3A" name="devolver posiciones"/>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_Td8dYMOUEeKCH_Dmz7pk3A" name="Actor"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_X-aX4MOUEeKCH_Dmz7pk3A" name="A_crear mapa_actor" memberEnd="_X-aX4cOUEeKCH_Dmz7pk3A _X-aX5MOUEeKCH_Dmz7pk3A">
+    <ownedEnd xmi:id="_X-aX4cOUEeKCH_Dmz7pk3A" name="crear mapa" type="_3rITMMOSEeKCH_Dmz7pk3A" association="_X-aX4MOUEeKCH_Dmz7pk3A">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_X-aX4sOUEeKCH_Dmz7pk3A" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_X-aX48OUEeKCH_Dmz7pk3A" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_X-aX5MOUEeKCH_Dmz7pk3A" name="actor" type="_Td8dYMOUEeKCH_Dmz7pk3A" association="_X-aX4MOUEeKCH_Dmz7pk3A">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_X-aX5cOUEeKCH_Dmz7pk3A" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_X-aX5sOUEeKCH_Dmz7pk3A" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_Zg5eUMOUEeKCH_Dmz7pk3A" name="A_cargar mapa_actor" memberEnd="_Zg5eUcOUEeKCH_Dmz7pk3A _Zg5eVMOUEeKCH_Dmz7pk3A">
+    <ownedEnd xmi:id="_Zg5eUcOUEeKCH_Dmz7pk3A" name="cargar mapa" type="_4cKukMOSEeKCH_Dmz7pk3A" association="_Zg5eUMOUEeKCH_Dmz7pk3A">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Zg5eUsOUEeKCH_Dmz7pk3A" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Zg5eU8OUEeKCH_Dmz7pk3A" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_Zg5eVMOUEeKCH_Dmz7pk3A" name="actor" type="_Td8dYMOUEeKCH_Dmz7pk3A" association="_Zg5eUMOUEeKCH_Dmz7pk3A">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Zg5eVcOUEeKCH_Dmz7pk3A" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Zg5eVsOUEeKCH_Dmz7pk3A" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_a5BH0MOUEeKCH_Dmz7pk3A" name="A_mover heroe_actor" memberEnd="_a5BH0cOUEeKCH_Dmz7pk3A _a5BH1MOUEeKCH_Dmz7pk3A">
+    <ownedEnd xmi:id="_a5BH0cOUEeKCH_Dmz7pk3A" name="mover heroe" type="_414PEMOSEeKCH_Dmz7pk3A" association="_a5BH0MOUEeKCH_Dmz7pk3A">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_a5BH0sOUEeKCH_Dmz7pk3A" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_a5BH08OUEeKCH_Dmz7pk3A" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_a5BH1MOUEeKCH_Dmz7pk3A" name="actor" type="_Td8dYMOUEeKCH_Dmz7pk3A" association="_a5BH0MOUEeKCH_Dmz7pk3A">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_a5BH1cOUEeKCH_Dmz7pk3A" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_a5BH1sOUEeKCH_Dmz7pk3A" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_cYCqkMOUEeKCH_Dmz7pk3A" name="A_reiniciar nivel_actor" memberEnd="_cYCqkcOUEeKCH_Dmz7pk3A _cYCqlMOUEeKCH_Dmz7pk3A">
+    <ownedEnd xmi:id="_cYCqkcOUEeKCH_Dmz7pk3A" name="reiniciar nivel" type="_6Qpj8MOSEeKCH_Dmz7pk3A" association="_cYCqkMOUEeKCH_Dmz7pk3A">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cYCqksOUEeKCH_Dmz7pk3A" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cYCqk8OUEeKCH_Dmz7pk3A" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_cYCqlMOUEeKCH_Dmz7pk3A" name="actor" type="_Td8dYMOUEeKCH_Dmz7pk3A" association="_cYCqkMOUEeKCH_Dmz7pk3A">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cYCqlcOUEeKCH_Dmz7pk3A" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cYCqlsOUEeKCH_Dmz7pk3A" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_doN5AMOUEeKCH_Dmz7pk3A" name="A_indicar posicion heroe_actor" memberEnd="_doN5AcOUEeKCH_Dmz7pk3A _doN5BMOUEeKCH_Dmz7pk3A">
+    <ownedEnd xmi:id="_doN5AcOUEeKCH_Dmz7pk3A" name="indicar posicion heroe" type="_7PwQgMOSEeKCH_Dmz7pk3A" association="_doN5AMOUEeKCH_Dmz7pk3A">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_doN5AsOUEeKCH_Dmz7pk3A" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_doN5A8OUEeKCH_Dmz7pk3A" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_doN5BMOUEeKCH_Dmz7pk3A" name="actor" type="_Td8dYMOUEeKCH_Dmz7pk3A" association="_doN5AMOUEeKCH_Dmz7pk3A">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_doN5BcOUEeKCH_Dmz7pk3A" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_doN5BsOUEeKCH_Dmz7pk3A" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_fNTngMOUEeKCH_Dmz7pk3A" name="A_indicar numero diamantes pendientes_actor" memberEnd="_fNTngcOUEeKCH_Dmz7pk3A _fNTnhMOUEeKCH_Dmz7pk3A">
+    <ownedEnd xmi:id="_fNTngcOUEeKCH_Dmz7pk3A" name="indicar numero diamantes pendientes" type="_AkSsQMOTEeKCH_Dmz7pk3A" association="_fNTngMOUEeKCH_Dmz7pk3A">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fNTngsOUEeKCH_Dmz7pk3A" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fNTng8OUEeKCH_Dmz7pk3A" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_fNTnhMOUEeKCH_Dmz7pk3A" name="actor" type="_Td8dYMOUEeKCH_Dmz7pk3A" association="_fNTngMOUEeKCH_Dmz7pk3A">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fNTnhcOUEeKCH_Dmz7pk3A" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fNTnhsOUEeKCH_Dmz7pk3A" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_nniB0MOUEeKCH_Dmz7pk3A" name="A_actor_devolver posiciones" memberEnd="_nniB0cOUEeKCH_Dmz7pk3A _nniB1MOUEeKCH_Dmz7pk3A">
+    <ownedEnd xmi:id="_nniB0cOUEeKCH_Dmz7pk3A" name="actor" type="_Td8dYMOUEeKCH_Dmz7pk3A" association="_nniB0MOUEeKCH_Dmz7pk3A">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nniB0sOUEeKCH_Dmz7pk3A" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nniB08OUEeKCH_Dmz7pk3A" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_nniB1MOUEeKCH_Dmz7pk3A" name="devolver posiciones" type="_PchPUMOUEeKCH_Dmz7pk3A" association="_nniB0MOUEeKCH_Dmz7pk3A">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_nniB1cOUEeKCH_Dmz7pk3A" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_nniB1sOUEeKCH_Dmz7pk3A" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+</uml:Model>
