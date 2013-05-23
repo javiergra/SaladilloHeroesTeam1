@@ -1,11 +1,13 @@
 package es.iessaladillo.juegos.saladillo.Acciones;
 
+import es.iessaladillo.juegos.saladillo.controller.Mapa;
+
 public class DiamantesEnMapaAccion implements Accion{
 	
 	int diamantes;
 	
-	public DiamantesEnMapaAccion(int diamantes) {
-		this.diamantes = diamantes;
+	public DiamantesEnMapaAccion() {
+		this.diamantes = Mapa.diamantes;
 	}
 
 	@Override

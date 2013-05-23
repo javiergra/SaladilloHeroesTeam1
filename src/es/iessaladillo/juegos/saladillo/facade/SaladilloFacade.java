@@ -47,7 +47,7 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 
 	@Override
 	public int diamantesEnMapa() {
-		Accion accion=new DiamantesEnMapaAccion(diamantes);
+		Accion accion=new DiamantesEnMapaAccion();
 		return ((Integer) accion.execute()).intValue();
 	}
 
