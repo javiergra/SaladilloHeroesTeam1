@@ -70,8 +70,8 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 
 	@Override
 	public ConjuntoPosiciones posicionesAActualizar() {
-		// TODO Auto-generated method stub
-		return null;
+		Accion accion = new PosicionesAActualizarAccion();
+		return (ConjuntoPosiciones) accion.execute();
 	}
 
 }

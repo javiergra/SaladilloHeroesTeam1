@@ -12,7 +12,7 @@ public class Mapa implements MapaInterface, Cloneable{
 
 	public Mapa(Entidad[] entidades) {
 		mapaFromEntidades=entidades;
-	}
+	}		// RellenarMapa? de Entidades[] a Elementos[][] NO??
 
 	@Override
 	public Dibujable obtenerPosicion(Posicion posicion) {

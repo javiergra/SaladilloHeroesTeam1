@@ -1,7 +1,6 @@
 package es.iessaladillo.juegos.saladillo.util;
 
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.Iterator;
 
 
@@ -24,8 +23,7 @@ public class ConjuntoPosiciones {
 	}
 
     public boolean estaVacio(){
-    	return posiciones.isEmpty();
-    	
+    	return posiciones.isEmpty();	
     }
 
 }
