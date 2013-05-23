@@ -1,18 +1,16 @@
 package es.iessaladillo.juegos.saladillo.facade;
 
+import es.iessaladillo.juegos.saladillo.Acciones.*;
 import es.iessaladillo.juegos.saladillo.controller.MapaInterface;
 import es.iessaladillo.juegos.saladillo.model.delegate.SaladilloFacadeDelegate;
-import es.iessaladillo.juegos.saladillo.util.ConjuntoPosiciones;
-import es.iessaladillo.juegos.saladillo.util.Direccion;
-import es.iessaladillo.juegos.saladillo.util.Entidad;
-import es.iessaladillo.juegos.saladillo.util.Posicion;
+import es.iessaladillo.juegos.saladillo.util.*;
 
 public class SaladilloFacade implements SaladilloFacadeDelegate {
 
 	@Override
 	public MapaInterface mapaFromEntidades(Entidad[] entidades) {
-		// TODO Auto-generated method stub
-		return null;
+		Accion accion=new MapaFromEntidadesAccion(entidades);
+		return (MapaInterface) accion.execute();
 	}
 
 	@Override

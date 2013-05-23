@@ -5,7 +5,13 @@ import es.iessaladillo.juegos.saladillo.util.*;
 
 public class Mapa implements MapaInterface{
 	Elementos[][] mapa=new Elementos[14][14];
+	Entidad[] mapaFromEntidades=new Entidad[196];
 	
+
+	public Mapa(Entidad[] entidades) {
+		mapaFromEntidades=entidades;
+	}
+
 	@Override
 	public Dibujable obtenerPosicion(Posicion posicion) {
 		Elementos elemento = null;
