@@ -15,6 +15,8 @@ public class MapaFromEntidadesAccion implements Accion {
 	public Object execute() {
 		return new Mapa (entidades);
 	}
+	
+	
 	public void saludo(){
 		System.out.println("HOla");
 	}
