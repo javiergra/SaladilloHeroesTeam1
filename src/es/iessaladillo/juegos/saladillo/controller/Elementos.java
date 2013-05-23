@@ -1,7 +1,7 @@
 package es.iessaladillo.juegos.saladillo.controller;
 
 
-public class Elementos implements Dibujable{
+public class Elementos implements Dibujable, Cloneable{
 
 	private int X;
 	private int Y;
@@ -69,7 +69,11 @@ public class Elementos implements Dibujable{
 	
 	public Object clone() {
 		try{
-			return (super.clone());
+			
+			Elementos elemento = (Elementos) super.clone();
+			elemento.fondo = (Dibujable) fondo.clone();
+			return elemento;
+			
 		}catch(CloneNotSupportedException cnse){
 			return null;
 		}

@@ -3,7 +3,7 @@ package es.iessaladillo.juegos.saladillo.controller;
 
 import es.iessaladillo.juegos.saladillo.util.*;
 
-public class Mapa implements MapaInterface{
+public class Mapa implements MapaInterface, Cloneable{
 	Elementos[][] mapa=new Elementos[14][14];
 	Entidad[] mapaFromEntidades=new Entidad[196];
 	
@@ -59,5 +59,16 @@ public class Mapa implements MapaInterface{
 				dibujable.setFondo(contenido);
 		}
 			
+	}
+	
+	public Object clone() {
+		try{
+			
+			Mapa mapa = (Mapa) super.clone();
+			return mapa;
+			
+		}catch(CloneNotSupportedException cnse){
+			return null;
+		}
 	}
 }
