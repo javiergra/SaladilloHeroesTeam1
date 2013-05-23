@@ -16,4 +16,7 @@ public class CargarMapaAccion implements Accion{
 		return new Mapa(entidades);
 	}
 
+	public static void Saludo(){
+		System.out.println("Hola");
+	}
 }
