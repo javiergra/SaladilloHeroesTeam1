@@ -17,8 +17,7 @@ public class Mapa implements MapaInterface, Cloneable{
 	@Override
 	public Dibujable obtenerPosicion(Posicion posicion) {
 		Elementos elemento = null;
-		elemento.setX(posicion.getX());
-		elemento.setY(posicion.getY());
+		elemento = mapa.clone()[posicion.getX()][posicion.getY()];
 		return elemento;
 	}
 	

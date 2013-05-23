@@ -1,6 +1,7 @@
 package es.iessaladillo.juegos.saladillo.facade;
 
 import es.iessaladillo.juegos.saladillo.Acciones.*;
+import es.iessaladillo.juegos.saladillo.controller.Dibujable;
 import es.iessaladillo.juegos.saladillo.controller.Mapa;
 import es.iessaladillo.juegos.saladillo.controller.MapaInterface;
 import es.iessaladillo.juegos.saladillo.model.delegate.SaladilloFacadeDelegate;
@@ -31,8 +32,24 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 
 	@Override
 	public MapaInterface mover(Direccion direccion) {
-		// TODO Auto-generated method stub
-		return null;
+		Posicion posicion;
+		Dibujable heroe;
+		
+		posicion = mapa.getPosicionHeroe();
+		heroe = mapa.obtenerPosicion(posicion);
+		
+		if (direccion == Direccion.UP)
+			posicion.setY(posicion.getY() + 1);
+		else if (direccion == Direccion.DOWN)
+			posicion.setY(posicion.getY() - 1);
+		else if (direccion == Direccion.LEFT)
+			posicion.setX(posicion.getX() - 1);
+		else
+			posicion.setX(posicion.getX() + 1);
+		
+		mapa.ponerElemento(posicion, heroe);
+		
+		return mapa;
 	}
 
 	@Override
