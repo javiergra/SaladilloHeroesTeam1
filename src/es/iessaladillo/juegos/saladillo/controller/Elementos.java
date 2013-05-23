@@ -71,7 +71,8 @@ public class Elementos implements Dibujable, Cloneable{
 		try{
 			
 			Elementos elemento = (Elementos) super.clone();
-			elemento.fondo = (Dibujable) fondo.clone();
+			if (elemento.fondo != null)
+				elemento.fondo = (Dibujable) fondo.clone();
 			return elemento;
 			
 		}catch(CloneNotSupportedException cnse){

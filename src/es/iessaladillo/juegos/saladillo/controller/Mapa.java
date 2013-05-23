@@ -29,20 +29,29 @@ public class Mapa implements MapaInterface, Cloneable{
 	@Override
 	public void ponerElemento(Posicion posicion, Dibujable dibujable) {
 		int x, y;
-		Dibujable contenido;
+		Elementos contenido = null;
 		
 		x = posicion.getX();
 		y = posicion.getY();
 		
+		if (dibujable.getNombreImagen().equals("Heroe")){
+			posicionHeroe.setX(x);
+			posicionHeroe.setY(y);
+		}
+		
 		if (mapa[x][y] == null)
 			mapa[x][y] = (Elementos) dibujable;
-		else {
+		else{
 			contenido = mapa[x][y];
-			if (contenido.contieneFondo())
+			if (contenido.getNombreClase().equals("Background") || 
+				(dibujable.getNombreImagen().equals("Heroe")) ){
 				dibujable.setFondo(contenido);
-			else if((contenido.getNombreImagen().equals("TELETRANSPORTEAZUL")) ||
-					(contenido.getNombreImagen().equals("TELETRANSPORTEROJO")) )
-				dibujable.setFondo(contenido);
+				mapa[x][y] = (Elementos) dibujable;
+			}	// al mover, ¿Heroe o Teletransporte primero? Preguntar a Javier
+			else{
+				contenido.setFondo(dibujable);
+				mapa[x][y] = contenido;
+				}
 		}
 			
 	}
