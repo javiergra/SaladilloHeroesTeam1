@@ -1,6 +1,7 @@
 package es.iessaladillo.juegos.saladillo.controller;
 
 
+import es.iessaladillo.juegos.saladillo.interfaz.util.VariablesGlobales;
 import es.iessaladillo.juegos.saladillo.util.*;
 
 public class Mapa implements MapaInterface, Cloneable{
@@ -43,7 +44,12 @@ public class Mapa implements MapaInterface, Cloneable{
 			mapa[x][y] = (Elementos) dibujable;
 		else{
 			contenido = mapa[x][y];
-			if (contenido.getNombreClase().equals("Background") || 
+			if (dibujable.getNombreImagen().equals("Heroe") && contenido.getNombreImagen().equals("Diamante")){
+				VariablesGlobales.diamantes++;
+				dibujable.setFondo(contenido.getFondo());
+				mapa[x][y] = (Elementos) dibujable;
+			}
+			else if (contenido.getNombreClase().equals("Background") || 
 				(dibujable.getNombreImagen().equals("Heroe")) ){
 				dibujable.setFondo(contenido);
 				mapa[x][y] = (Elementos) dibujable;
