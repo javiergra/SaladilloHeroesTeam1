@@ -32,27 +32,29 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 
 	@Override
 	public MapaInterface mover(Direccion direccion) {
-		Posicion posicion;
+		Posicion posicionHeroe, posicion;
 		Dibujable heroe, elemento;
 		//A la hora de mover, se podría aprovechar y enviar la posicion antigua del heroe al
 		//ArrayList de ConjuntoPosiciones para el historial de movimiento. Se podría hacer llamando al
 		//metodo posicionesAActualizar()?
 		posicion = mapa.getPosicionHeroe();
 		heroe = mapa.obtenerPosicion(posicion);
-		elemento = heroe.getFondo();
-		mapa.ponerElemento(posicion, null);
-		mapa.ponerElemento(posicion, elemento);
+		if (mapa.sePuedeMover(posicion, direccion)){
+			
+			elemento = heroe.getFondo();
+			mapa.ponerElemento(posicion, null);
+			mapa.ponerElemento(posicion, elemento);
 		
-		if (direccion == Direccion.UP)
-			posicion.setY(posicion.getY() + 1);
-		else if (direccion == Direccion.DOWN)
-			posicion.setY(posicion.getY() - 1);
-		else if (direccion == Direccion.LEFT)
-			posicion.setX(posicion.getX() - 1);
-		else
-			posicion.setX(posicion.getX() + 1);
-		
-		mapa.ponerElemento(posicion, heroe);
+			posicionHeroe = mapa.siguientePosicion(posicion, direccion);	
+			elemento =mapa.obtenerPosicion(posicionHeroe);
+			
+			if (elemento.getNombreClase().equals("ForegroundMovil")){
+				heroe.setFondo(elemento.getFondo());
+				posicion = mapa.siguientePosicion(posicionHeroe, direccion);
+				mapa.ponerElemento(posicion, elemento);
+			}
+			mapa.ponerElemento(posicionHeroe, heroe);
+		}
 		
 		
 		return mapa;

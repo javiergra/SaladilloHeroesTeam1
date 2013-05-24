@@ -63,6 +63,53 @@ public class Mapa implements MapaInterface, Cloneable{
 			
 	}
 	
+	public boolean sePuedeMover(Posicion posicion, Direccion direccion){
+		Posicion nuevaPosicion = posicion;
+		Dibujable elemento;
+		boolean sePuede = false;
+		
+		nuevaPosicion = siguientePosicion(posicion, direccion);
+		
+		if (posicionLegal(nuevaPosicion)){	// Si no se sale del mapa
+		
+		elemento = mapa[nuevaPosicion.getX()][nuevaPosicion.getY()];
+		
+		if (elemento.getNombreClase().equals("ForegroundMovil")){
+			sePuede = sePuedeMover(nuevaPosicion, direccion);	// metodo recursivo
+		}
+		else if (elemento.getNombreClase().equals("ForegroundFijo"))
+			sePuede = false;
+		}
+		
+		return sePuede;
+	}
+	
+	public boolean posicionLegal(Posicion posicion){
+		boolean legal = true;
+		int x, y;
+		
+		x = posicion.getX();
+		y = posicion.getY();
+		
+		if (x < 0 || x > 14 || y < 0 || y > 14)
+			legal = false;
+		return legal;
+	}
+	
+	public Posicion siguientePosicion(Posicion posicion, Direccion direccion){
+		
+		if (direccion == Direccion.UP)
+			posicion.setY(posicion.getY() + 1);
+		else if (direccion == Direccion.DOWN)
+			posicion.setY(posicion.getY() - 1);
+		else if (direccion == Direccion.LEFT)
+			posicion.setX(posicion.getX() - 1);
+		else
+			posicion.setX(posicion.getX() + 1);
+		
+		return posicion;
+	}
+	
 	public Object clone() {
 		try{
 			
