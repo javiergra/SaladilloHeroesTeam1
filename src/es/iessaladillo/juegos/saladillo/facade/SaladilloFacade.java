@@ -33,12 +33,15 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 	@Override
 	public MapaInterface mover(Direccion direccion) {
 		Posicion posicion;
-		Dibujable heroe;
+		Dibujable heroe, elemento;
 		//A la hora de mover, se podría aprovechar y enviar la posicion antigua del heroe al
 		//ArrayList de ConjuntoPosiciones para el historial de movimiento. Se podría hacer llamando al
 		//metodo posicionesAActualizar()?
 		posicion = mapa.getPosicionHeroe();
 		heroe = mapa.obtenerPosicion(posicion);
+		elemento = heroe.getFondo();
+		mapa.ponerElemento(posicion, null);
+		mapa.ponerElemento(posicion, elemento);
 		
 		if (direccion == Direccion.UP)
 			posicion.setY(posicion.getY() + 1);
@@ -50,6 +53,7 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 			posicion.setX(posicion.getX() + 1);
 		
 		mapa.ponerElemento(posicion, heroe);
+		
 		
 		return mapa;
 	}

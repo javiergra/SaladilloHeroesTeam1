@@ -39,7 +39,7 @@ public class Mapa implements MapaInterface, Cloneable{
 			posicionHeroe.setY(y);
 		}
 		
-		if (mapa[x][y] == null)
+		if (mapa[x][y] == null || dibujable == null)
 			mapa[x][y] = (Elementos) dibujable;
 		else{
 			contenido = mapa[x][y];
