@@ -4,7 +4,7 @@ package es.iessaladillo.juegos.saladillo.controller;
 import es.iessaladillo.juegos.saladillo.util.*;
 
 public class Mapa implements MapaInterface, Cloneable{
-	public static int diamantes = 0;
+	
 	Elementos[][] mapa=new Elementos[14][14];
 	Entidad[] mapaFromEntidades=new Entidad[196];
 	Posicion posicionHeroe;

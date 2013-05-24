@@ -8,7 +8,7 @@ public class PosicionesAActualizarAccion implements Accion {
 	
 	@Override
 	public Object execute() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

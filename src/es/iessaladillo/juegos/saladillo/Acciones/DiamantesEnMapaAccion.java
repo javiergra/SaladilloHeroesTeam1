@@ -1,13 +1,13 @@
 package es.iessaladillo.juegos.saladillo.Acciones;
 
-import es.iessaladillo.juegos.saladillo.controller.Mapa;
+import es.iessaladillo.juegos.saladillo.interfaz.util.VariablesGlobales;
 
 public class DiamantesEnMapaAccion implements Accion{
 	
 	int diamantes;
 	
 	public DiamantesEnMapaAccion() {
-		this.diamantes = Mapa.diamantes;
+		this.diamantes = VariablesGlobales.diamantes;
 	}
 
 	@Override
