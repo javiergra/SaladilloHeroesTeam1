@@ -56,7 +56,6 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 			mapa.ponerElemento(posicionHeroe, heroe);
 		}
 		
-		
 		return mapa;
 	}
 
