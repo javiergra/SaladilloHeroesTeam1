@@ -48,8 +48,8 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 			posicionHeroe = mapa.siguientePosicion(posicion, direccion);	
 			elemento =mapa.obtenerPosicion(posicionHeroe);
 			
-			if (elemento.getNombreClase().equals("ForegroundMovil")){
-				heroe.setFondo(elemento.getFondo());
+			if (elemento.getNombreClase().equals("ForegroundMovil")){	// Si hay pelota...
+				mapa.ponerElemento(posicionHeroe, elemento.getFondo());
 				posicion = mapa.siguientePosicion(posicionHeroe, direccion);
 				mapa.ponerElemento(posicion, elemento);
 			}
