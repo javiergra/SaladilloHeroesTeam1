@@ -76,7 +76,7 @@ public class Mapa implements MapaInterface, Cloneable{
 		
 		if (elemento.getNombreClase().equals("ForegroundMovil")){
 			sePuede = sePuedeMover(nuevaPosicion, direccion);	// metodo recursivo
-		}
+		}//Problema pelotero con la recursividad: Y si el heroe quiere mover una pelota y justo detras de esta hay otra pelota?
 		else if (elemento.getNombreClase().equals("ForegroundFijo"))
 			sePuede = false;
 		}
