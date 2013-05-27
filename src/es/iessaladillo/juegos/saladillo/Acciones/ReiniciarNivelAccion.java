@@ -5,8 +5,8 @@ import es.iessaladillo.juegos.saladillo.facade.SaladilloFacade;
 
 public class ReiniciarNivelAccion implements Accion{
 	Mapa mapa;
-	public ReiniciarNivelAccion(Mapa mapa) {
-		this.mapa = SaladilloFacade.mapaInicial;
+	public ReiniciarNivelAccion() {
+		mapa = SaladilloFacade.mapaInicial;
 	}
 	public  Object execute() {
 		return mapa;

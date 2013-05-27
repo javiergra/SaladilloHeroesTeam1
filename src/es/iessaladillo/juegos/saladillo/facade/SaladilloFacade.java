@@ -1,9 +1,7 @@
 package es.iessaladillo.juegos.saladillo.facade;
 
 import es.iessaladillo.juegos.saladillo.Acciones.*;
-import es.iessaladillo.juegos.saladillo.controller.Dibujable;
-import es.iessaladillo.juegos.saladillo.controller.Mapa;
-import es.iessaladillo.juegos.saladillo.controller.MapaInterface;
+import es.iessaladillo.juegos.saladillo.controller.*;
 import es.iessaladillo.juegos.saladillo.model.delegate.SaladilloFacadeDelegate;
 import es.iessaladillo.juegos.saladillo.util.*;
 
@@ -61,7 +59,7 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 
 	@Override
 	public MapaInterface reiniciarNivel() { //Cambio hecho en 26/05/2013
-		Accion accion = new ReiniciarNivelAccion(mapa);
+		Accion accion = new ReiniciarNivelAccion();
 		return (MapaInterface) accion.execute();
 	}
 
