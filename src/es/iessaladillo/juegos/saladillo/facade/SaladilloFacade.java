@@ -38,7 +38,7 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 		//metodo posicionesAActualizar()?
 		posicion = mapa.getPosicionHeroe();
 		heroe = mapa.obtenerPosicion(posicion);
-		if (mapa.sePuedeMover(posicion, direccion)){
+		if (mapa.sePuedeMover(posicion, direccion, (byte) 0)){
 			
 			elemento = heroe.getFondo();
 			mapa.ponerElemento(posicion, null);

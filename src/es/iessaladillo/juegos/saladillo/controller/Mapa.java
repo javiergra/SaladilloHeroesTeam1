@@ -63,7 +63,7 @@ public class Mapa implements MapaInterface, Cloneable{
 			
 	}
 	
-	public boolean sePuedeMover(Posicion posicion, Direccion direccion){
+	public boolean sePuedeMover(Posicion posicion, Direccion direccion, byte auxiliar){
 		Posicion nuevaPosicion = posicion;
 		Dibujable elemento;
 		boolean sePuede = false;
@@ -72,13 +72,13 @@ public class Mapa implements MapaInterface, Cloneable{
 		
 		if (posicionLegal(nuevaPosicion)){	// Si no se sale del mapa
 		
-		elemento = mapa[nuevaPosicion.getX()][nuevaPosicion.getY()];
+			elemento = mapa[nuevaPosicion.getX()][nuevaPosicion.getY()];
 		
-		if (elemento.getNombreClase().equals("ForegroundMovil")){
-			sePuede = sePuedeMover(nuevaPosicion, direccion);	// metodo recursivo
-		}//Problema pelotero con la recursividad: Y si el heroe quiere mover una pelota y justo detras de esta hay otra pelota?
-		else if (elemento.getNombreClase().equals("ForegroundFijo"))
-			sePuede = false;
+			if (elemento.getNombreClase().equals("ForegroundMovil") && (auxiliar == 0) ){
+				sePuede = sePuedeMover(nuevaPosicion, direccion, (byte) 1);	
+			}
+			else if (elemento.getNombreClase().equals("Background"))
+				sePuede = true;
 		}
 		
 		return sePuede;
