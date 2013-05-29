@@ -14,6 +14,7 @@ public class MoverAccion implements Accion{
 		this.direccion = direccion;
 	}
 	
+
 	public  Object execute() {
 		Posicion posicionHeroe, posicion;
 		Dibujable heroe, elemento;
