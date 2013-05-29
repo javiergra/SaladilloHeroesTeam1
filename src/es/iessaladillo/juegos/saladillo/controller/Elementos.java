@@ -3,35 +3,17 @@ package es.iessaladillo.juegos.saladillo.controller;
 
 public class Elementos implements Dibujable, Cloneable{
 
-	private int X;
-	private int Y;
 	private String nombreImagen;
 	private String tipoImagen;
 	private Dibujable fondo;
 	
-	Elementos(byte X, byte Y, String nombreImagen, String tipoImagen, Dibujable fondo){
-		this.X = X;
-		this.Y = Y;
+	Elementos(String nombreImagen, String tipoImagen, Dibujable fondo){
+
 		this.nombreImagen = nombreImagen;
 		this.tipoImagen = tipoImagen;
 		this.fondo = fondo;
 	}
 	
-	public int getX() {
-		return X;
-	}
-
-	public void setX(int x) {
-		X = x;
-	}
-
-	public int getY() {
-		return Y;
-	}
-
-	public void setY(int y) {
-		Y = y;
-	}
 
 	@Override
 	public String getNombreImagen() {
