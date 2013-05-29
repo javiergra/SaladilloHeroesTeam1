@@ -1,11 +1,16 @@
 package es.iessaladillo.juegos.saladillo.Acciones;
 
-public class PosicionesAActualizarAccion implements Accion {
+import java.util.ArrayList;
+import es.iessaladillo.juegos.saladillo.util.Posicion;
 
-	public PosicionesAActualizarAccion(){
-		
-	}
+public class PosicionesAActualizarAccion implements Accion {
 	
+	ArrayList<Posicion> posiciones = new ArrayList<Posicion>();
+	
+	public PosicionesAActualizarAccion(){
+
+	}
+		// ¿Qué mapa es el verdadero?
 	@Override
 	public Object execute() {
 		

@@ -7,8 +7,9 @@ import es.iessaladillo.juegos.saladillo.util.*;
 
 public class SaladilloFacade implements SaladilloFacadeDelegate {
 
-	public static Mapa mapa,mapaInicial;// He cambiado a estático porque quiero dejar los mapas en memoria
+	public static Mapa mapaInicial;// He cambiado a estático porque quiero dejar los mapas en memoria
 										// y su acceso se vuelve más rápido.
+	Mapa mapa = new Mapa();
 	
 	@Override
 	public MapaInterface mapaFromEntidades(Entidad[] entidades) {
@@ -25,7 +26,7 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 
 	@Override
 	public void cargarMapa(MapaInterface mapa) {
-		SaladilloFacade.mapa=(Mapa) mapa;
+		mapa=(Mapa) mapa;
 		mapaInicial=(Mapa) ((Mapa)mapa).clone();
 	}
 

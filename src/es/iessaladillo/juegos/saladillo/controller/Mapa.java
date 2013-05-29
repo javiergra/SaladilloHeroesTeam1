@@ -1,6 +1,8 @@
 package es.iessaladillo.juegos.saladillo.controller;
 
 
+import java.util.ArrayList;
+
 import es.iessaladillo.juegos.saladillo.interfaz.util.VariablesGlobales;
 import es.iessaladillo.juegos.saladillo.util.*;
 
@@ -9,11 +11,17 @@ public class Mapa implements MapaInterface, Cloneable{
 	Elementos[][] mapa=new Elementos[14][14];
 	Entidad[] mapaFromEntidades=new Entidad[196];
 	Posicion posicionHeroe;
+	ArrayList<Posicion> posiciones = new ArrayList<Posicion>();
 	
 
 	public Mapa(Entidad[] entidades) {
 		mapaFromEntidades=entidades;
 	}		// RellenarMapa? de Entidades[] a Elementos[][] NO?? Raul-> Creo que esa es la idea, aunq no me gusta mucho.
+
+	public Mapa() {
+		// TODO Auto-generated constructor stub
+	}
+
 
 	@Override
 	public Dibujable obtenerPosicion(Posicion posicion) {
@@ -21,6 +29,7 @@ public class Mapa implements MapaInterface, Cloneable{
 		elemento = mapa.clone()[posicion.getX()][posicion.getY()];
 		return elemento;
 	}
+	
 	
 	@Override
 	public Posicion getPosicionHeroe() {
