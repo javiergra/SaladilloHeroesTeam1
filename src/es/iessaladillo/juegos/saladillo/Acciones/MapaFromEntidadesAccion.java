@@ -8,27 +8,26 @@ import es.iessaladillo.juegos.saladillo.util.Posicion;
 
 public class MapaFromEntidadesAccion implements Accion {
 	Mapa mapa;
-	Entidad [] entidades;
-	
+	Entidad[] entidades;
+
 	public MapaFromEntidadesAccion(Entidad[] entidades) {
-		this.entidades=entidades;
+		this.entidades = entidades;
 	}
 
 	@Override
 	public Object execute() {
-		int i=0;
+		int i = 0;
 		Elementos prueba = null;
 		Posicion posicion = null;
-		for (i=0;i<196;i++){
+		for (i = 0; i < 196; i++) {
 			prueba.setNombreImagen(entidades[i].getTipo());
 			posicion.setX(entidades[i].getX());
-			posicion.setY(entidades[i].getY());			
-//			if (((Heroe)(entidades[i].getTipo())).isHeroe(entidades[i].getTipo()));
+			posicion.setY(entidades[i].getY());
+			// if
+			// (((Heroe)(entidades[i].getTipo())).isHeroe(entidades[i].getTipo()));
 			mapa.ponerElemento(posicion, prueba);
-			
 
-		return new Mapa (entidades);
-	}
-		
+			return new Mapa(entidades);
+		}
 	}
 }
