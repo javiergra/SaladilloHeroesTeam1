@@ -14,6 +14,14 @@ public class Mapa implements MapaInterface, Cloneable{
 	ArrayList<Posicion> posiciones = new ArrayList<Posicion>();
 	
 
+	public ArrayList<Posicion> getPosiciones() {
+		return posiciones;
+	}
+
+	public void setPosiciones(ArrayList<Posicion> posiciones) {
+		this.posiciones = posiciones;
+	}
+
 	public Mapa(Entidad[] entidades) {
 		mapaFromEntidades=entidades;
 	}		// RellenarMapa? de Entidades[] a Elementos[][] NO?? Raul-> Creo que esa es la idea, aunq no me gusta mucho.

@@ -7,10 +7,26 @@ import es.iessaladillo.juegos.saladillo.util.*;
 
 public class SaladilloFacade implements SaladilloFacadeDelegate {
 
-	public static Mapa mapaInicial;// He cambiado a estático porque quiero dejar los mapas en memoria
-										// y su acceso se vuelve más rápido.
-	Mapa mapa = new Mapa();
+	private Mapa mapaInicial = new Mapa();
+
+	private Mapa mapa = new Mapa();
 	
+	public Mapa getMapaInicial() {
+		return mapaInicial;
+	}
+
+	public void setMapaInicial(Mapa mapaInicial) {
+		this.mapaInicial = mapaInicial;
+	}
+
+	public Mapa getMapa() {
+		return mapa;
+	}
+
+	public void setMapa(Mapa mapa) {
+		this.mapa = mapa;
+	}
+
 	@Override
 	public MapaInterface mapaFromEntidades(Entidad[] entidades) {
 		Accion accion=new MapaFromEntidadesAccion(entidades);
@@ -37,14 +53,14 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 	}
 
 	@Override
-	public MapaInterface reiniciarNivel() { //Cambio hecho en 26/05/2013
-		Accion accion = new ReiniciarNivelAccion();
+	public MapaInterface reiniciarNivel() {
+		Accion accion = new ReiniciarNivelAccion(mapaInicial);
 		return (MapaInterface) accion.execute();
 	}
 
 	@Override
-	public Posicion getPosicionHeroe() {//Cambio hecho en 26/05/2013
-		Accion accion = new GetPosicionHeroeAccion();
+	public Posicion getPosicionHeroe() {
+		Accion accion = new GetPosicionHeroeAccion(mapa);
 		return (Posicion) accion.execute();
 	}
 

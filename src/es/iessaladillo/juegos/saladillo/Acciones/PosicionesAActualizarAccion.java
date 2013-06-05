@@ -7,8 +7,8 @@ public class PosicionesAActualizarAccion implements Accion {
 	
 	ArrayList<Posicion> posiciones = new ArrayList<Posicion>();
 	
-	public PosicionesAActualizarAccion(){
-
+	public PosicionesAActualizarAccion (ArrayList<Posicion> getPosiciones()){
+			posiciones = getPosiciones();
 	}
 		// ¿Qué mapa es el verdadero?
 	@Override
