@@ -64,10 +64,10 @@ public class CargadorNiveles {
 
 	}
 	
-	static public void main(String args[]){
+/*	static public void main(String args[]){
 		
 		ArrayList<Entidad> entidades =cargarNivel("src/1.lvl");
 		System.out.println(entidades);
 	}
-	
+	*/
 }

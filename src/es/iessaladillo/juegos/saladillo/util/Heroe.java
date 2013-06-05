@@ -3,7 +3,7 @@ package es.iessaladillo.juegos.saladillo.util;
 public enum Heroe {
 	HEROE;
 
-	public boolean isHeroe (String nombreImagen){
+	public static boolean isHeroe (String nombreImagen){
 		 boolean devuelto;
 		 try{
 			 Heroe heroe = Heroe.valueOf(nombreImagen);

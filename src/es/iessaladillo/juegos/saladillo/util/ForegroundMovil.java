@@ -4,7 +4,7 @@ public enum ForegroundMovil {
 	
    CAJA , BOLAPIEDRA, PELOTAAZUL, PELOTANARANJA, PELOTAVERDE, PELOTAROJA;
 
-   public boolean isForegroundMovil (String nombreImagen){
+   public static boolean isForegroundMovil (String nombreImagen){
 		 boolean devuelto;
 		 try{
 			 ForegroundMovil movil = ForegroundMovil.valueOf(nombreImagen);

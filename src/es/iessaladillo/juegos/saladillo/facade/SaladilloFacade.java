@@ -77,12 +77,12 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 		return (ConjuntoPosiciones) accion.execute();
 	}
 
-	public void main (String[] args){
+	public static void main (String[] args){
 		int i=0,x,y;
 		Entidad[] arrayentidades;
 		Entidad temporal;
 		ArrayList<Entidad> entidades =CargadorNiveles.cargarNivel("src/1.lvl");
-		arrayentidades=(Entidad[]) entidades.toArray();
+	//	arrayentidades=(Entidad[]) entidades.toArray();
 
 	}
 }

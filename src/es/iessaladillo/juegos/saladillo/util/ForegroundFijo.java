@@ -4,7 +4,7 @@ public enum ForegroundFijo {
 	
 	ARBOL, CASA, EDIFICIO, EDIFICIO2, MATORRAL, ROCASUELO;
 
-	 public boolean isForegroundFijo (String nombreImagen){
+	 public static boolean isForegroundFijo (String nombreImagen){
 		 boolean devuelto;
 		 try{
 			 ForegroundFijo fijo = ForegroundFijo.valueOf(nombreImagen);

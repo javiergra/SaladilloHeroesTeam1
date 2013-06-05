@@ -11,7 +11,7 @@ public enum Background {
 	 CAMINOARENACESPEDCURVALU, CAMINOARENACESPEDCURVARD, CAMINOARENACESPEDCURVARU, CAMINOARENAGRAVILLALD, 
 	 CAMINOARENAGRAVILLALU, CAMINOARENAGRAVILLARD, CAMINOARENAGRAVILLARU;
 
-	 public boolean isBackground (String nombreImagen){
+	 public static boolean isBackground (String nombreImagen){
 		 boolean devuelto;
 		 try{
 			 Background background = Background.valueOf(nombreImagen);

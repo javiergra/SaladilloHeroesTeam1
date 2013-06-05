@@ -5,6 +5,7 @@ public class Elementos implements Dibujable, Cloneable{
 
 	private String nombreImagen;
 	private String tipoImagen;
+	
 	public String getTipoImagen() {
 		return tipoImagen;
 	}
