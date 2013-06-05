@@ -23,10 +23,8 @@ public class MapaFromEntidadesAccion implements Accion {
 			prueba.setNombreImagen(entidades[i].getTipo());
 			posicion.setX(entidades[i].getX());
 			posicion.setY(entidades[i].getY());
-			// if
 			// (((Heroe)(entidades[i].getTipo())).isHeroe(entidades[i].getTipo()));
 			mapa.ponerElemento(posicion, prueba);
-
 			return new Mapa(entidades);
 		}
 	}
