@@ -24,8 +24,8 @@ public class Mapa implements MapaInterface, Cloneable{
 
 	public Mapa(Entidad[] entidades) {
 		mapaFromEntidades=entidades;
-	}		// RellenarMapa? de Entidades[] a Elementos[][] NO?? Raul-> Creo que esa es la idea, aunq no me gusta mucho.
-
+	}
+	
 	public Mapa() {
 		// TODO Auto-generated constructor stub
 	}

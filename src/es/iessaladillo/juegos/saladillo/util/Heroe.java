@@ -1,5 +1,16 @@
 package es.iessaladillo.juegos.saladillo.util;
 
-public class Heroe {
-	//vacio
+public enum Heroe {
+	HEROE;
+
+	public boolean isHeroe (String nombreImagen){
+		 boolean devuelto;
+		 try{
+			 Heroe heroe = Heroe.valueOf(nombreImagen);
+			 devuelto=true;
+		 }catch (IllegalArgumentException e){
+			 devuelto=false;
+		 }
+		 return devuelto;
+	 }
 }

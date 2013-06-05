@@ -5,6 +5,20 @@ public class Elementos implements Dibujable, Cloneable{
 
 	private String nombreImagen;
 	private String tipoImagen;
+	public String getTipoImagen() {
+		return tipoImagen;
+	}
+
+
+	public void setNombreImagen(String nombreImagen) {
+		this.nombreImagen = nombreImagen;
+	}
+
+
+	public void setTipoImagen(String tipoImagen) {
+		this.tipoImagen = tipoImagen;
+	}
+
 	private Dibujable fondo;
 	
 	Elementos(String nombreImagen, String tipoImagen, Dibujable fondo){

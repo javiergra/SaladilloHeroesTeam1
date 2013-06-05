@@ -10,5 +10,15 @@ public enum Background {
 	 CESPEDSENDEROHORIZONTAL, CESPEDSENDEROVERTICAL, CESPEDVERTICAL, CAMINOARENACESPEDCURVALD, 
 	 CAMINOARENACESPEDCURVALU, CAMINOARENACESPEDCURVARD, CAMINOARENACESPEDCURVARU, CAMINOARENAGRAVILLALD, 
 	 CAMINOARENAGRAVILLALU, CAMINOARENAGRAVILLARD, CAMINOARENAGRAVILLARU;
-	
+
+	 public boolean isBackground (String nombreImagen){
+		 boolean devuelto;
+		 try{
+			 Background background = Background.valueOf(nombreImagen);
+			 devuelto=true;
+		 }catch (IllegalArgumentException e){
+			 devuelto=false;
+		 }
+		 return devuelto;
+	 }
 }
