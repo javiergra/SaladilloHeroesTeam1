@@ -8,7 +8,6 @@ import es.iessaladillo.juegos.saladillo.util.*;
 public class SaladilloFacade implements SaladilloFacadeDelegate {
 
 	private Mapa mapaInicial = new Mapa();
-
 	private Mapa mapa = new Mapa();
 	
 	public Mapa getMapaInicial() {
