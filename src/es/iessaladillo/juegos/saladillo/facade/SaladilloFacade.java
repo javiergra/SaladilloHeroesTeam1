@@ -72,7 +72,7 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 
 	@Override
 	public ConjuntoPosiciones posicionesAActualizar() {
-		Accion accion = new PosicionesAActualizarAccion();
+		Accion accion = new PosicionesAActualizarAccion(mapa);
 		return (ConjuntoPosiciones) accion.execute();
 	}
 
