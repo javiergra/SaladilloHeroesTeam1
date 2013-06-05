@@ -15,7 +15,7 @@
         </eAnnotations>
         <children xmi:type="notation:DecorationNode" xmi:id="_LuWbls30EeKCXpSCcUiySw" type="5002"/>
         <element xmi:type="uml:Lifeline" href="model.uml#_LuUmYM30EeKCXpSCcUiySw"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LuV0gc30EeKCXpSCcUiySw" x="50" y="10" width="53"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LuV0gc30EeKCXpSCcUiySw" x="50" y="10" width="112"/>
       </children>
       <children xmi:type="notation:Shape" xmi:id="_a3-GEM30EeKCXpSCcUiySw" type="3001" fontName="Lucida Grande" fontHeight="11" lineColor="0">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_a3-tIM30EeKCXpSCcUiySw" source="ShadowFigure">
