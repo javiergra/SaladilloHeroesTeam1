@@ -29,6 +29,6 @@ public class MapaFromEntidadesAccion implements Accion {
 
 		return new Mapa (entidades);
 	}
-
-}
+		
+	}
 }
