@@ -25,7 +25,8 @@ public class MapaFromEntidadesAccion implements Accion {
 			posicion.setY(entidades[i].getY());
 			// (((Heroe)(entidades[i].getTipo())).isHeroe(entidades[i].getTipo()));
 			mapa.ponerElemento(posicion, prueba);
-			return new Mapa(entidades);
 		}
+		return new Mapa(entidades);
+
 	}
 }
