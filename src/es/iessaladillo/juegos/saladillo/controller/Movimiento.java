@@ -15,20 +15,21 @@ public class Movimiento {
 
 	public MapaInterface siguienteMovimiento(){
 		
-	Posicion posicionHeroe, posicion;
+	Posicion posicionHeroe, posicion, posicionMov;
 	Dibujable heroe, elemento;
 	
 	mapa.posiciones.clear();		// Limpiamos el Array antes de cada movimiento
-	posicion = mapa.getPosicionHeroe();
-	heroe = mapa.obtenerPosicion(posicion);
-	if (mapa.sePuedeMover(posicion, direccion, (byte) 0)){
+	posicionHeroe = mapa.getPosicionHeroe();
+	posicionMov = new Posicion(posicionHeroe.getX(), posicionHeroe.getY());
+	heroe = mapa.obtenerPosicion(posicionHeroe);
+	if (mapa.sePuedeMover(posicionMov, direccion, (byte) 0)){
 		
 		elemento = heroe.getFondo();
-		mapa.ponerElemento(posicion, null);
-		mapa.ponerElemento(posicion, elemento);
-		mapa.posiciones.add(posicion);	// Añadimos la posición que tenemos que "refrescar".
+		mapa.ponerElemento(posicionHeroe, null);
+		mapa.ponerElemento(posicionHeroe, elemento);
+		mapa.posiciones.add(posicionMov);	// Añadimos la posición que tenemos que "refrescar".
 	
-		posicionHeroe = mapa.siguientePosicion(posicion, direccion);	
+		posicionHeroe = mapa.siguientePosicion(posicionHeroe, direccion);	
 		elemento =mapa.obtenerPosicion(posicionHeroe);
 		
 		if (elemento.getNombreClase().equals("ForegroundMovil")){	// Si hay pelota...

@@ -89,7 +89,7 @@ public class Mapa implements MapaInterface, Cloneable{
 		Dibujable elemento;
 		boolean sePuede = false;
 		
-		nuevaPosicion = siguientePosicion(posicion, direccion);
+		nuevaPosicion = siguientePosicion(nuevaPosicion, direccion);
 		
 		if (posicionLegal(nuevaPosicion)){	// Si no se sale del mapa
 		
@@ -120,9 +120,9 @@ public class Mapa implements MapaInterface, Cloneable{
 	public Posicion siguientePosicion(Posicion posicion, Direccion direccion){
 		
 		if (direccion == Direccion.UP)
-			posicion.setX(posicion.getX() + 1);
-		else if (direccion == Direccion.DOWN)
 			posicion.setX(posicion.getX() - 1);
+		else if (direccion == Direccion.DOWN)
+			posicion.setX(posicion.getX() + 1);
 		else if (direccion == Direccion.LEFT)
 			posicion.setY(posicion.getY() - 1);
 		else
