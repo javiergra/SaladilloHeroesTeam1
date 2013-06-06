@@ -33,8 +33,10 @@ public class Movimiento {
 		elemento =mapa.obtenerPosicion(posicionHeroe);
 		
 		if (elemento.getNombreClase().equals("ForegroundMovil")){	// Si hay pelota...
+			posicionMov = new Posicion(posicionHeroe.getX(), posicionHeroe.getY()); // copia de seguridad
+			mapa.ponerElemento(posicionHeroe, null);
 			mapa.ponerElemento(posicionHeroe, elemento.getFondo());
-			posicion = mapa.siguientePosicion(posicionHeroe, direccion);
+			posicion = mapa.siguientePosicion(posicionMov, direccion);
 			mapa.ponerElemento(posicion, elemento);
 			mapa.posiciones.add(posicion);	// Añadimos la nueva posición de la pelota para "refrescar".
 		}
