@@ -30,6 +30,11 @@ public class Elementos implements Dibujable, Cloneable{
 	}
 	
 
+	public Elementos() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	@Override
 	public String getNombreImagen() {
 	

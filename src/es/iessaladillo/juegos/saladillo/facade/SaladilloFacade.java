@@ -1,6 +1,7 @@
 package es.iessaladillo.juegos.saladillo.facade;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import es.iessaladillo.juegos.saladillo.Acciones.*;
 import es.iessaladillo.juegos.saladillo.controller.*;
@@ -79,12 +80,18 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 
 	public static void main (String[] args){
 		int i=0,x,y;
-		Entidad[] arrayentidades;
+
 		Entidad temporal;
+		Entidad[] arrayentidades;
+		
 		ArrayList<Entidad> entidades =CargadorNiveles.cargarNivel("src/1.lvl");
-		arrayentidades=(Entidad[]) entidades.toArray();
+		System.out.println(entidades.size());
+
+		arrayentidades = ImprimirMapa.convertirAArray(entidades);
+		System.out.println(arrayentidades.length);
+		
 		SaladilloFacade fachada = new SaladilloFacade();
-		fachada.setMapa((Mapa) fachada.mapaFromEntidades(arrayentidades) );
+		fachada.setMapa( (Mapa) fachada.mapaFromEntidades(arrayentidades) );
 		ImprimirMapa.enConsola(fachada.getMapa());
 	}
 }

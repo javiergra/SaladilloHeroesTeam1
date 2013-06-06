@@ -6,7 +6,7 @@ import es.iessaladillo.juegos.saladillo.util.*;
 
 
 public class MapaFromEntidadesAccion implements Accion {
-	Mapa mapa;
+	Mapa mapa = new Mapa();
 	Entidad[] entidades;
 
 	public MapaFromEntidadesAccion(Entidad[] entidades) {
@@ -16,9 +16,10 @@ public class MapaFromEntidadesAccion implements Accion {
 	@Override
 	public Object execute() {
 		int i = 0;
-		Elementos prueba = null;
-		Posicion posicion = null;
-		for (i = 0; i < 196; i++) {
+		Elementos prueba;;
+		Posicion posicion = new Posicion(0,0);
+		for (i = 0; i < entidades.length; i++) {
+			prueba =  new Elementos();
 			prueba.setNombreImagen(entidades[i].getTipo());
 			posicion=new Posicion(entidades[i].getX(),entidades[i].getY());
 			if (Heroe.isHeroe(prueba.getNombreImagen().toUpperCase()))
@@ -31,6 +32,8 @@ public class MapaFromEntidadesAccion implements Accion {
 				prueba.setTipoImagen(ForegroundFijo.class.getSimpleName());
 			else if (Teletransporte.isTeletransporte(prueba.getNombreImagen().toUpperCase()))
 				prueba.setTipoImagen(Teletransporte.class.getSimpleName());
+			else if (Diamante.isDiamante(prueba.getNombreImagen().toUpperCase()))
+				prueba.setTipoImagen(Diamante.class.getSimpleName());
 			
 			mapa.ponerElemento(posicion, prueba);
 		}

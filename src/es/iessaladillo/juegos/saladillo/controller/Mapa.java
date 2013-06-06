@@ -10,7 +10,7 @@ public class Mapa implements MapaInterface, Cloneable{
 	
 	Elementos[][] mapa=new Elementos[14][14];
 	Entidad[] mapaFromEntidades=new Entidad[196];
-	Posicion posicionHeroe;
+	Posicion posicionHeroe = new Posicion(0,0);
 	ArrayList<Posicion> posiciones = new ArrayList<Posicion>();
 	
 
@@ -47,7 +47,7 @@ public class Mapa implements MapaInterface, Cloneable{
 	@Override
 	public void ponerElemento(Posicion posicion, Dibujable dibujable) {
 		int x, y;
-		Elementos contenido = null;
+		Elementos contenido = new Elementos();
 		
 		x = posicion.getX();
 		y = posicion.getY();
@@ -66,12 +66,14 @@ public class Mapa implements MapaInterface, Cloneable{
 				dibujable.setFondo(contenido.getFondo());
 				mapa[x][y] = (Elementos) dibujable;
 			}
-			else if (contenido.getNombreClase().equals("Background") || 
+			else if (contenido.getTipoImagen().equals("Background") || 
 				(dibujable.getNombreImagen().equals("Heroe")) ){
 				dibujable.setFondo(contenido);
 				mapa[x][y] = (Elementos) dibujable;
 			}	// al mover, ¿Heroe o Teletransporte primero? Preguntar a Javier
 				// Raul-> Creo que la idea es heroe-teletrans-backgr.
+			else if (contenido.getTipoImagen().equals(((Elementos)dibujable).getTipoImagen()))
+				mapa[x][y] = (Elementos) dibujable;
 			else{
 				contenido.setFondo(dibujable);
 				mapa[x][y] = contenido;
