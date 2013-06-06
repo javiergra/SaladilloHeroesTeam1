@@ -4,7 +4,7 @@ public enum Teletransporte {
 	
 	TELETRANSPORTEROJO, TELETRANSPORTEAZUL;
 
-	public boolean isTeletransporte (String nombreImagen){
+	public static boolean isTeletransporte (String nombreImagen){
 		 boolean devuelto;
 		 try{
 			 Teletransporte teletransporte = Teletransporte.valueOf(nombreImagen);

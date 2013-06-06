@@ -2,10 +2,8 @@ package es.iessaladillo.juegos.saladillo.Acciones;
 
 import es.iessaladillo.juegos.saladillo.controller.Elementos;
 import es.iessaladillo.juegos.saladillo.controller.Mapa;
-import es.iessaladillo.juegos.saladillo.util.Background;
-import es.iessaladillo.juegos.saladillo.util.Entidad;
-import es.iessaladillo.juegos.saladillo.util.Heroe;
-import es.iessaladillo.juegos.saladillo.util.Posicion;
+import es.iessaladillo.juegos.saladillo.util.*;
+
 
 public class MapaFromEntidadesAccion implements Accion {
 	Mapa mapa;
@@ -23,15 +21,20 @@ public class MapaFromEntidadesAccion implements Accion {
 		for (i = 0; i < 196; i++) {
 			prueba.setNombreImagen(entidades[i].getTipo());
 			posicion=new Posicion(entidades[i].getX(),entidades[i].getY());
-			if (Heroe.isHeroe(prueba.getTipoImagen().toUpperCase()))
-				prueba.setNombreImagen(Heroe.class.getSimpleName()); //No se si era aqui donde guardas el tipo o en tipoImagen
-			else if (Background.isBackground(prueba.getTipoImagen().toUpperCase()))
-				prueba.setNombreImagen(Background.class.getSimpleName());
+			if (Heroe.isHeroe(prueba.getNombreImagen().toUpperCase()))
+				prueba.setTipoImagen(Heroe.class.getSimpleName()); 
+			else if (Background.isBackground(prueba.getNombreImagen().toUpperCase()))
+				prueba.setTipoImagen(Background.class.getSimpleName());
+			else if (ForegroundMovil.isForegroundMovil(prueba.getNombreImagen().toUpperCase()))
+				prueba.setTipoImagen(ForegroundMovil.class.getSimpleName());
+			else if (ForegroundFijo.isForegroundFijo(prueba.getNombreImagen().toUpperCase()))
+				prueba.setTipoImagen(ForegroundFijo.class.getSimpleName());
+			else if (Teletransporte.isTeletransporte(prueba.getNombreImagen().toUpperCase()))
+				prueba.setTipoImagen(Teletransporte.class.getSimpleName());
 			
-			//Continuaria con los demas...
 			mapa.ponerElemento(posicion, prueba);
 		}
-		return new Mapa(entidades);
+		return mapa;
 
 	}
 }

@@ -82,7 +82,9 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 		Entidad[] arrayentidades;
 		Entidad temporal;
 		ArrayList<Entidad> entidades =CargadorNiveles.cargarNivel("src/1.lvl");
-	//	arrayentidades=(Entidad[]) entidades.toArray();
-
+		arrayentidades=(Entidad[]) entidades.toArray();
+		SaladilloFacade fachada = new SaladilloFacade();
+		fachada.setMapa((Mapa) fachada.mapaFromEntidades(arrayentidades) );
+		ImprimirMapa.enConsola(fachada.getMapa());
 	}
 }
