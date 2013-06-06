@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import es.iessaladillo.juegos.saladillo.util.Direccion;
 import es.iessaladillo.juegos.saladillo.util.Entidad;
+import es.iessaladillo.juegos.saladillo.util.Posicion;
 
 public class ImprimirMapa {
 
@@ -75,4 +76,28 @@ public class ImprimirMapa {
 		return direccion;
 		
 	}
+
+	
+	public static Posicion nuevoTeletransporte(Mapa mapa, Posicion posicion, String nombreAR){
+		int i, j;
+		Elementos elemento;
+		ArrayList<Posicion> listaTele = new ArrayList<Posicion>();
+		Posicion posicionNueva;
+		
+		for (i = 0; i < 14; i++){
+			for (j = 0; j < 14; j++){
+				elemento = mapa.mapa[i][j];
+				if (elemento.getNombreImagen().equals(nombreAR) && i != posicion.getX() && j != posicion.getY()){
+					posicionNueva = new Posicion(i, j);
+					listaTele.add(posicionNueva);
+				}
+			}
+		}
+		i=(int)(Math.random()*listaTele.size());
+		posicionNueva = listaTele.get(i);		
+		
+		return posicionNueva;
+		
+	}
+	
 }

@@ -72,8 +72,7 @@ public class Mapa implements MapaInterface, Cloneable{
 				(dibujable.getNombreImagen().equals("Heroe")) ){
 				dibujable.setFondo(contenido);
 				mapa[x][y] = (Elementos) dibujable;
-			}	// al mover, ¿Heroe o Teletransporte primero? Preguntar a Javier
-				// Raul-> Creo que la idea es heroe-teletrans-backgr.
+			}
 			else if (contenido.getTipoImagen().equals(((Elementos)dibujable).getTipoImagen()))
 				mapa[x][y] = (Elementos) dibujable;
 			else{
@@ -99,7 +98,8 @@ public class Mapa implements MapaInterface, Cloneable{
 				sePuede = sePuedeMover(nuevaPosicion, direccion, (byte) 1);	
 			}
 			else if (elemento.getNombreClase().equals("Background") || 
-					 elemento.getNombreClase().equals("Diamante"))
+					 elemento.getNombreClase().equals("Diamante") || 
+					 elemento.getNombreClase().equals("Teletransporte") )
 				sePuede = true;
 		}
 		

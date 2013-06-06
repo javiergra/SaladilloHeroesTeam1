@@ -40,6 +40,9 @@ public class Movimiento {
 			mapa.ponerElemento(posicion, elemento);
 			mapa.posiciones.add(posicion);	// Añadimos la nueva posición de la pelota para "refrescar".
 		}
+		if (elemento.getNombreClase().equals("Teletransporte")){	// Si hay Teletransporte
+			posicionHeroe = ImprimirMapa.nuevoTeletransporte(mapa, posicionHeroe, elemento.getNombreImagen());
+		}
 		mapa.ponerElemento(posicionHeroe, heroe);
 		mapa.posiciones.add(posicionHeroe);	// Añadimos la posición del Héroe para "refrescar".
 	}
