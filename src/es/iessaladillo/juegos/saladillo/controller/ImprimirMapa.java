@@ -1,7 +1,8 @@
 package es.iessaladillo.juegos.saladillo.controller;
 
 import java.util.ArrayList;
-
+import javax.swing.JOptionPane;
+import es.iessaladillo.juegos.saladillo.util.Direccion;
 import es.iessaladillo.juegos.saladillo.util.Entidad;
 
 public class ImprimirMapa {
@@ -43,6 +44,35 @@ public class ImprimirMapa {
 			miArray[i] = entidades.get(i);
 		}
 		return miArray;
+		
+	}
+	
+	public static Direccion elegirDireccion(){
+		byte opcionMenu;
+		Direccion direccion = null;
+		
+		Object opcion = JOptionPane.showInputDialog(
+				null,"¿Hacia dónde movemos el Héroe?","MENÚ",JOptionPane.QUESTION_MESSAGE,
+				null,  // null para icono defecto
+				new Object[] { "1. Arriba", "2. Abajo", "3. Izquierda", "4. Derecha" }, "1. Arriba");
+				opcionMenu = Byte.parseByte(((String)opcion).substring(0, 1));
+				
+					switch (opcionMenu) { 		
+					case 1:
+						direccion = Direccion.UP;
+						break;
+					case 2:	
+						direccion = Direccion.DOWN;
+						break;
+					case 3:
+						direccion = Direccion.LEFT;
+						break;
+					case 4:	
+						direccion = Direccion.RIGHT;
+						break;
+					}
+					
+		return direccion;
 		
 	}
 }

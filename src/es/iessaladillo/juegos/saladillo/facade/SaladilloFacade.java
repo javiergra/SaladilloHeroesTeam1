@@ -80,6 +80,7 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 
 	public static void main (String[] args){
 		int i=0,x,y;
+		Direccion direccion;
 
 		Entidad temporal;
 		Entidad[] arrayentidades;
@@ -91,5 +92,8 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 		SaladilloFacade fachada = new SaladilloFacade();
 		fachada.setMapa( (Mapa) fachada.mapaFromEntidades(arrayentidades) );
 		ImprimirMapa.enConsola(fachada.getMapa());
+		direccion = ImprimirMapa.elegirDireccion();
+		Movimiento movemos = new Movimiento(fachada.getMapa(), direccion);
+		fachada.setMapa( (Mapa) movemos.siguienteMovimiento() );
 	}
 }
