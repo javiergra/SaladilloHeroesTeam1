@@ -85,10 +85,8 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 		Entidad[] arrayentidades;
 		
 		ArrayList<Entidad> entidades =CargadorNiveles.cargarNivel("src/1.lvl");
-		System.out.println(entidades.size());
 
 		arrayentidades = ImprimirMapa.convertirAArray(entidades);
-		System.out.println(arrayentidades.length);
 		
 		SaladilloFacade fachada = new SaladilloFacade();
 		fachada.setMapa( (Mapa) fachada.mapaFromEntidades(arrayentidades) );
