@@ -98,7 +98,8 @@ public class Mapa implements MapaInterface, Cloneable{
 			if (elemento.getNombreClase().equals("ForegroundMovil") && (auxiliar == 0) ){
 				sePuede = sePuedeMover(nuevaPosicion, direccion, (byte) 1);	
 			}
-			else if (elemento.getNombreClase().equals("Background"))
+			else if (elemento.getNombreClase().equals("Background") || 
+					 elemento.getNombreClase().equals("Diamante"))
 				sePuede = true;
 		}
 		
