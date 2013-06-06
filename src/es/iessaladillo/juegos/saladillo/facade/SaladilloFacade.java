@@ -79,10 +79,9 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 	}
 
 	public static void main (String[] args){
-		int i=0,x,y;
+		int i=0;
 		Direccion direccion;
 
-		Entidad temporal;
 		Entidad[] arrayentidades;
 		
 		ArrayList<Entidad> entidades =CargadorNiveles.cargarNivel("src/1.lvl");
@@ -91,9 +90,12 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 		
 		SaladilloFacade fachada = new SaladilloFacade();
 		fachada.setMapa( (Mapa) fachada.mapaFromEntidades(arrayentidades) );
+		
+		while (i == 0){
 		ImprimirMapa.enConsola(fachada.getMapa());
 		direccion = ImprimirMapa.elegirDireccion();
 		Movimiento movemos = new Movimiento(fachada.getMapa(), direccion);
 		fachada.setMapa( (Mapa) movemos.siguienteMovimiento() );
+		}
 	}
 }

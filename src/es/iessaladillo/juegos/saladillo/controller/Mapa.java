@@ -52,14 +52,16 @@ public class Mapa implements MapaInterface, Cloneable{
 		x = posicion.getX();
 		y = posicion.getY();
 		
-		if (dibujable.getNombreImagen().equals("Heroe")){
-			posicionHeroe.setX(x);
-			posicionHeroe.setY(y);
-		}
-		
-		if (mapa[x][y] == null || dibujable == null)
+		if (dibujable == null)
+			mapa[x][y] = null;
+		else if (mapa[x][y] == null )
 			mapa[x][y] = (Elementos) dibujable;
 		else{
+			if (dibujable.getNombreImagen().equals("Heroe")){
+				posicionHeroe.setX(x);
+				posicionHeroe.setY(y);
+			}
+			
 			contenido = mapa[x][y];
 			if (dibujable.getNombreImagen().equals("Heroe") && contenido.getNombreImagen().equals("Diamante")){
 				VariablesGlobales.diamantes++;
@@ -118,13 +120,13 @@ public class Mapa implements MapaInterface, Cloneable{
 	public Posicion siguientePosicion(Posicion posicion, Direccion direccion){
 		
 		if (direccion == Direccion.UP)
-			posicion.setY(posicion.getY() + 1);
-		else if (direccion == Direccion.DOWN)
-			posicion.setY(posicion.getY() - 1);
-		else if (direccion == Direccion.LEFT)
-			posicion.setX(posicion.getX() - 1);
-		else
 			posicion.setX(posicion.getX() + 1);
+		else if (direccion == Direccion.DOWN)
+			posicion.setX(posicion.getX() - 1);
+		else if (direccion == Direccion.LEFT)
+			posicion.setY(posicion.getY() - 1);
+		else
+			posicion.setY(posicion.getY() + 1);
 		
 		return posicion;
 	}
