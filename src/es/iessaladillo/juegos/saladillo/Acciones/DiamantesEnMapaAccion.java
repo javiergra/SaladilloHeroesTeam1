@@ -7,7 +7,7 @@ public class DiamantesEnMapaAccion implements Accion{
 	int diamantes;
 	
 	public DiamantesEnMapaAccion() {
-		this.diamantes = VariablesGlobales.diamantes;
+		this.diamantes = VariablesGlobales.DIAMANTES;
 	}
 
 	@Override

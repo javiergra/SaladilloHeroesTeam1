@@ -27,7 +27,6 @@ public class Mapa implements MapaInterface, Cloneable{
 	}
 	
 	public Mapa() {
-		// TODO Auto-generated constructor stub
 	}
 
 
@@ -64,7 +63,7 @@ public class Mapa implements MapaInterface, Cloneable{
 			
 			contenido = mapa[x][y];
 			if (dibujable.getNombreImagen().equals("Heroe") && contenido.getNombreImagen().equals("Diamante")){
-				VariablesGlobales.diamantes++;
+				VariablesGlobales.DIAMANTES++;
 				dibujable.setFondo(contenido.getFondo());
 				mapa[x][y] = (Elementos) dibujable;
 			}

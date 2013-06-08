@@ -48,16 +48,17 @@ public class ImprimirMapa {
 		
 	}
 	
-	public static Direccion elegirDireccion(){
-		byte opcionMenu;
+	public static Direccion elegirDireccion() throws NullPointerException{
+		byte opcionMenu=0;
 		Direccion direccion = null;
 		
 		Object opcion = JOptionPane.showInputDialog(
 				null,"¿Hacia dónde movemos el Héroe?","MENÚ",JOptionPane.QUESTION_MESSAGE,
 				null,  // null para icono defecto
 				new Object[] { "1. Arriba", "2. Abajo", "3. Izquierda", "4. Derecha" }, "1. Arriba");
-				opcionMenu = Byte.parseByte(((String)opcion).substring(0, 1));
 				
+		opcionMenu = Byte.parseByte(((String)opcion).substring(0, 1));
+		
 					switch (opcionMenu) { 		
 					case 1:
 						direccion = Direccion.UP;

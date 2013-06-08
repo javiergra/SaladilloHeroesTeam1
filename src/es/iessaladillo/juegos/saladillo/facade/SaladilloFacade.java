@@ -1,8 +1,6 @@
 package es.iessaladillo.juegos.saladillo.facade;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-
 import es.iessaladillo.juegos.saladillo.Acciones.*;
 import es.iessaladillo.juegos.saladillo.controller.*;
 import es.iessaladillo.juegos.saladillo.model.delegate.SaladilloFacadeDelegate;
@@ -90,12 +88,15 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 		
 		SaladilloFacade fachada = new SaladilloFacade();
 		fachada.setMapa( (Mapa) fachada.mapaFromEntidades(arrayentidades) );
-		
+		try{
 		while (i == 0){
 		ImprimirMapa.enConsola(fachada.getMapa());
 		direccion = ImprimirMapa.elegirDireccion();
 		Movimiento movemos = new Movimiento(fachada.getMapa(), direccion);
 		fachada.setMapa( (Mapa) movemos.siguienteMovimiento() );
+		}
+		}catch (NullPointerException e){
+			System.out.println("Gracias por jugar");
 		}
 	}
 }
