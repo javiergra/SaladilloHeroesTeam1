@@ -4,9 +4,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
@@ -34,9 +31,10 @@ public class JPanelConFondo extends JFrame {
     	Grafico grafico;
     	
         this.setSize(448, 470);
+        this.setLocationRelativeTo(null);
         this.setVisible(true);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); 
-        this.setLocationRelativeTo(null); 
+        
     
     	
         if (mapa != null) {
@@ -84,9 +82,11 @@ public class JPanelConFondo extends JFrame {
     	Grafico grafico;
     	Graphics g2 = (Graphics2D)g;
     	g2.setColor(Color.black);
-    	g2.fillRect(0, 0, 448, 448);//creo un rectangulo negro del tamaño de la ventana para fondo
+    	g2.fillRect(0, 0, 448, 448);//creo un rectangulo negro del tamaño de la ventana para fondo (no se ve)
         
     	Image imagen;
+    	
+    	try{
         	for (int i = 0; i < 14; i++){
         		for ( int j = 0; j < 14; j++){
         			grafico = ArrayImagen[i][j];
@@ -97,6 +97,7 @@ public class JPanelConFondo extends JFrame {
         			g2.drawImage(grafico.getImagenPrincipal() , (i * 32), 22 + (j * 32), 32, 32, null);
         		}
         	}
+    	}catch(NullPointerException o){}	// captura el primer NullPointerException. Solución temporal...
     }
     
 }

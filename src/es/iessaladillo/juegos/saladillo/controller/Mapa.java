@@ -114,7 +114,7 @@ public class Mapa implements MapaInterface, Cloneable{
 		x = posicion.getX();
 		y = posicion.getY();
 		
-		if (x < 0 || x > 14 || y < 0 || y > 14)
+		if (x < 0 || x > 13 || y < 0 || y > 13)
 			legal = false;
 		return legal;
 	}

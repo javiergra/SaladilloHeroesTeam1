@@ -3,13 +3,10 @@ package es.iessaladillo.juegos.saladillo.facade;
 
 import imagenes.ImprimirMapa;
 import imagenes.JPanelConFondo;
-
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
-import javax.swing.WindowConstants;
 
 
 
