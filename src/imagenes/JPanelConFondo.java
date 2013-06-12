@@ -1,12 +1,9 @@
 package imagenes;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Image;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
-
 import es.iessaladillo.juegos.saladillo.controller.Grafico;
 import es.iessaladillo.juegos.saladillo.controller.Mapa;
 import es.iessaladillo.juegos.saladillo.util.Posicion;
@@ -81,10 +78,6 @@ public class JPanelConFondo extends JFrame {
     	
     	Grafico grafico;
     	Graphics g2 = (Graphics2D)g;
-    	g2.setColor(Color.black);
-    	g2.fillRect(0, 0, 448, 448);//creo un rectangulo negro del tamaño de la ventana para fondo (no se ve)
-        
-    	Image imagen;
     	
     	try{
         	for (int i = 0; i < 14; i++){
@@ -99,5 +92,7 @@ public class JPanelConFondo extends JFrame {
         	}
     	}catch(NullPointerException o){}	// captura el primer NullPointerException. Solución temporal...
     }
+
+	
     
 }

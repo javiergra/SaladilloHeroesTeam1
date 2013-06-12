@@ -7,10 +7,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-
-
-
-
 import es.iessaladillo.juegos.saladillo.Acciones.*;
 import es.iessaladillo.juegos.saladillo.controller.*;
 import es.iessaladillo.juegos.saladillo.interfaz.util.VariablesGlobales;
