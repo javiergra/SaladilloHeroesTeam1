@@ -118,9 +118,6 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 	            }
 	            Movimiento movemos = new Movimiento(fachada.mapa, direccion);
 	            ventanaPrincipal.setArrayImagen( (Mapa) movemos.siguienteMovimiento() );
-            	ventanaPrincipal.repaint();
-            	
-            	
 
 	        }
 	        @Override
