@@ -1,8 +1,22 @@
 package es.iessaladillo.juegos.saladillo.facade;
 
+
+import imagenes.ImprimirMapa;
+import imagenes.JPanelConFondo;
+
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
+
+
+
+
 import es.iessaladillo.juegos.saladillo.Acciones.*;
 import es.iessaladillo.juegos.saladillo.controller.*;
+import es.iessaladillo.juegos.saladillo.interfaz.util.VariablesGlobales;
 import es.iessaladillo.juegos.saladillo.model.delegate.SaladilloFacadeDelegate;
 import es.iessaladillo.juegos.saladillo.util.*;
 
@@ -86,17 +100,57 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 
 		arrayentidades = ImprimirMapa.convertirAArray(entidades);
 		
-		SaladilloFacade fachada = new SaladilloFacade();
+		final SaladilloFacade fachada = new SaladilloFacade();
 		fachada.setMapa( (Mapa) fachada.mapaFromEntidades(arrayentidades) );
-		try{
-		while (i == 0){
-		ImprimirMapa.enConsola(fachada.getMapa());
-		direccion = ImprimirMapa.elegirDireccion();
-		Movimiento movemos = new Movimiento(fachada.getMapa(), direccion);
-		fachada.setMapa( (Mapa) movemos.siguienteMovimiento() );
-		}
-		}catch (NullPointerException e){
-			System.out.println("Gracias por jugar");
-		}
+		 
+	    final JPanelConFondo ventanaPrincipal = new JPanelConFondo(fachada.mapa);
+	    ventanaPrincipal.addKeyListener(new KeyListener()
+	    {									// Clase interna implementando la interfaz KeyListener
+	       
+	        @Override 
+	        public void keyPressed(KeyEvent e) // tecla presionada (en ese momento)
+	        {
+	        	Direccion direccion = null;
+	        	int c = e.getKeyCode ();
+	            if (c==KeyEvent.VK_UP) {     
+	            	direccion = Direccion.UP;
+	            } else if(c==KeyEvent.VK_DOWN) {      
+	            	direccion = Direccion.DOWN;
+	            } else if(c==KeyEvent.VK_LEFT) {      
+	            	direccion = Direccion.LEFT;
+	            	new Movimiento(fachada.mapa, Direccion.LEFT); 
+	            } else if(c==KeyEvent.VK_RIGHT) {   
+	            	direccion = Direccion.RIGHT;
+	            	new Movimiento(fachada.mapa, Direccion.RIGHT);  
+	            }
+	            Movimiento movemos = new Movimiento(fachada.mapa, direccion);
+	            ventanaPrincipal.setArrayImagen( (Mapa) movemos.siguienteMovimiento() );
+            	ventanaPrincipal.repaint();
+            	
+            	
+
+	        }
+	        @Override
+	        public void keyReleased(KeyEvent e)	// tecla presionada (la última, y que ahora está suelta)
+	        {
+	        	if (VariablesGlobales.DIAMANTES == 0){
+            		JOptionPane.showMessageDialog(null, "¡Enhorabuena, has conseguido todos los diamantes!");
+            		System.exit(0);				// Salimos del juego (esta forma no le gusta a Eva :)
+	        	}
+	        }
+	        
+	        @Override
+	        public void keyTyped(KeyEvent e)
+	        {
+	        	//
+	           }
+	    });
+	                
+	                
+	               
+
+		
+		
+		
 	}
 }

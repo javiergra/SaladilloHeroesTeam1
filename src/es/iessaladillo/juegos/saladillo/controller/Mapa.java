@@ -9,7 +9,7 @@ import es.iessaladillo.juegos.saladillo.util.*;
 public class Mapa implements MapaInterface, Cloneable{
 	
 	Elementos[][] mapa=new Elementos[14][14];
-	Entidad[] mapaFromEntidades=new Entidad[196];
+	Entidad[] mapaFromEntidades;
 	Posicion posicionHeroe = new Posicion(0,0);
 	ArrayList<Posicion> posiciones = new ArrayList<Posicion>();
 	
@@ -60,10 +60,12 @@ public class Mapa implements MapaInterface, Cloneable{
 				posicionHeroe.setX(x);
 				posicionHeroe.setY(y);
 			}
+			else if (dibujable.getNombreImagen().equals("Diamante"))
+				VariablesGlobales.DIAMANTES++;
 			
 			contenido = mapa[x][y];
 			if (dibujable.getNombreImagen().equals("Heroe") && contenido.getNombreImagen().equals("Diamante")){
-				VariablesGlobales.DIAMANTES++;
+				VariablesGlobales.DIAMANTES--;
 				dibujable.setFondo(contenido.getFondo());
 				mapa[x][y] = (Elementos) dibujable;
 			}
@@ -120,13 +122,13 @@ public class Mapa implements MapaInterface, Cloneable{
 	public Posicion siguientePosicion(Posicion posicion, Direccion direccion){
 		
 		if (direccion == Direccion.UP)
-			posicion.setX(posicion.getX() - 1);
-		else if (direccion == Direccion.DOWN)
-			posicion.setX(posicion.getX() + 1);
-		else if (direccion == Direccion.LEFT)
 			posicion.setY(posicion.getY() - 1);
-		else
+		else if (direccion == Direccion.DOWN)
 			posicion.setY(posicion.getY() + 1);
+		else if (direccion == Direccion.LEFT)
+			posicion.setX(posicion.getX() - 1);
+		else
+			posicion.setX(posicion.getX() + 1);
 		
 		return posicion;
 	}

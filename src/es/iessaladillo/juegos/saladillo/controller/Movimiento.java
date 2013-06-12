@@ -1,5 +1,6 @@
 package es.iessaladillo.juegos.saladillo.controller;
 
+import imagenes.ImprimirMapa;
 import es.iessaladillo.juegos.saladillo.util.Direccion;
 import es.iessaladillo.juegos.saladillo.util.Posicion;
 
