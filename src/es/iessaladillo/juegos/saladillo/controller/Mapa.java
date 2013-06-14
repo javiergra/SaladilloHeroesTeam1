@@ -3,7 +3,7 @@ package es.iessaladillo.juegos.saladillo.controller;
 
 import java.util.ArrayList;
 
-import es.iessaladillo.juegos.saladillo.interfaz.util.VariablesGlobales;
+import es.iessaladillo.juegos.saladillo.music.MP3;
 import es.iessaladillo.juegos.saladillo.util.*;
 
 public class Mapa implements MapaInterface, Cloneable{
@@ -12,6 +12,7 @@ public class Mapa implements MapaInterface, Cloneable{
 	Entidad[] mapaFromEntidades;
 	Posicion posicionHeroe = new Posicion(0,0);
 	ArrayList<Posicion> posiciones = new ArrayList<Posicion>();
+	private int diamantesEnMapa = 0;
 	
 
 	public ArrayList<Posicion> getPosiciones() {
@@ -29,6 +30,14 @@ public class Mapa implements MapaInterface, Cloneable{
 	public Mapa() {
 	}
 
+
+	public int getDiamantesEnMapa() {
+		return diamantesEnMapa;
+	}
+
+	public void setDiamantesEnMapa(int diamantesEnMapa) {
+		this.diamantesEnMapa = diamantesEnMapa;
+	}
 
 	@Override
 	public Dibujable obtenerPosicion(Posicion posicion) {
@@ -61,13 +70,16 @@ public class Mapa implements MapaInterface, Cloneable{
 				posicionHeroe.setY(y);
 			}
 			else if (dibujable.getNombreImagen().equals("Diamante"))
-				VariablesGlobales.DIAMANTES++;
+				setDiamantesEnMapa(getDiamantesEnMapa() + 1);
 			
 			contenido = mapa[x][y];
 			if (dibujable.getNombreImagen().equals("Heroe") && contenido.getNombreImagen().equals("Diamante")){
-				VariablesGlobales.DIAMANTES--;
+				setDiamantesEnMapa(getDiamantesEnMapa() - 1);
 				dibujable.setFondo(contenido.getFondo());
 				mapa[x][y] = (Elementos) dibujable;
+				String filename = "src/es/iessaladillo/juegos/saladillo/music/diamante.mp3";
+	            MP3 mp3 = new MP3(filename);
+	            mp3.play();
 			}
 			else if (contenido.getTipoImagen().equals("Background") || 
 				(dibujable.getNombreImagen().equals("Heroe")) ){
@@ -99,8 +111,8 @@ public class Mapa implements MapaInterface, Cloneable{
 				sePuede = sePuedeMover(nuevaPosicion, direccion, (byte) 1);	
 			}
 			else if (elemento.getNombreClase().equals("Background") || 
-					 elemento.getNombreClase().equals("Diamante") || 
-					 elemento.getNombreClase().equals("Teletransporte") )
+					 (elemento.getNombreClase().equals("Diamante") && (auxiliar == 0) )|| // no podemos poner una pelota
+					 elemento.getNombreClase().equals("Teletransporte") && (auxiliar == 0))	// sobre un diamante
 				sePuede = true;
 		}
 		

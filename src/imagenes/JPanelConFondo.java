@@ -2,11 +2,25 @@ package imagenes;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.io.File;
+import java.io.IOException;
+
+import javax.print.DocFlavor.URL;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 import es.iessaladillo.juegos.saladillo.controller.Grafico;
 import es.iessaladillo.juegos.saladillo.controller.Mapa;
+import es.iessaladillo.juegos.saladillo.music.MP3;
 import es.iessaladillo.juegos.saladillo.util.Posicion;
+
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import javazoom.jl.player.Player;
 
 public class JPanelConFondo extends JFrame {
 
@@ -45,6 +59,13 @@ public class JPanelConFondo extends JFrame {
         }
         
         repaint();
+        
+
+            String filename = "src/es/iessaladillo/juegos/saladillo/music/juego.mp3";
+            MP3 mp3 = new MP3(filename);
+            mp3.play();
+      
+        
     }
 
     public JPanelConFondo(Grafico[][] ArrayImagen) {

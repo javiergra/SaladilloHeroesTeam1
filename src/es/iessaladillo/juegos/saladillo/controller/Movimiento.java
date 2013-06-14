@@ -47,6 +47,14 @@ public class Movimiento {
 		mapa.ponerElemento(posicionHeroe, heroe);
 		mapa.posiciones.add(posicionHeroe);	// Añadimos la posición del Héroe para "refrescar".
 	}
+	else if (heroe.getFondo().getNombreClase().equals("Teletransporte")){	// Si un elemento "pilla" en una esquina
+		elemento = heroe.getFondo();										// y no podemos movernos, al darle hacia
+		mapa.ponerElemento(posicionHeroe, null);							// un lado, aunque no se pueda mover
+		mapa.ponerElemento(posicionHeroe, elemento);						// vuelve a usar ese mismo teletransporte.
+		posicionHeroe = ImprimirMapa.nuevoTeletransporte(mapa, posicionHeroe, elemento.getNombreImagen());
+		mapa.ponerElemento(posicionHeroe, heroe);
+		mapa.posiciones.add(posicionHeroe);	// Añadimos la posición del Héroe para "refrescar".
+	}
 	return mapa;
 	}
 	

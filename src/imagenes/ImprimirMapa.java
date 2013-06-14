@@ -132,4 +132,9 @@ public class ImprimirMapa {
 		
 	}
 	
+	public static String cargarSiguienteNivel(Byte nivel){
+		
+		return "src/es/iessaladillo/juegos/saladillo/niveles/" + nivel + ".lvl";
+	}
+	
 }

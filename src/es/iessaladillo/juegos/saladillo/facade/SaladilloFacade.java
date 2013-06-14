@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import es.iessaladillo.juegos.saladillo.Acciones.*;
 import es.iessaladillo.juegos.saladillo.controller.*;
-import es.iessaladillo.juegos.saladillo.interfaz.util.VariablesGlobales;
 import es.iessaladillo.juegos.saladillo.model.delegate.SaladilloFacadeDelegate;
 import es.iessaladillo.juegos.saladillo.util.*;
 
@@ -17,6 +16,8 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 
 	private Mapa mapaInicial = new Mapa();
 	private Mapa mapa = new Mapa();
+	private Entidad[] arrayentidades;
+	private byte nivelACargar = 1;
 	
 	public Mapa getMapaInicial() {
 		return mapaInicial;
@@ -73,7 +74,7 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 
 	@Override
 	public int diamantesEnMapa() {
-		Accion accion=new DiamantesEnMapaAccion();
+		Accion accion=new DiamantesEnMapaAccion(mapa);
 		return ((Integer) accion.execute()).intValue();
 	}
 
@@ -87,15 +88,15 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 		int i=0;
 		Direccion direccion;
 
-		Entidad[] arrayentidades;
-		
-		ArrayList<Entidad> entidades =CargadorNiveles.cargarNivel("src/1.lvl");
-
-		arrayentidades = ImprimirMapa.convertirAArray(entidades);
+		//Entidad[] arrayentidades;
 		
 		final SaladilloFacade fachada = new SaladilloFacade();
-		fachada.setMapa( (Mapa) fachada.mapaFromEntidades(arrayentidades) );
-		 
+		
+		ArrayList<Entidad> entidades =CargadorNiveles.cargarNivel(ImprimirMapa.cargarSiguienteNivel(fachada.nivelACargar));
+		fachada.nivelACargar++;
+		fachada.arrayentidades = ImprimirMapa.convertirAArray(entidades);		
+		fachada.setMapa( (Mapa) fachada.mapaFromEntidades(fachada.arrayentidades) );
+		
 	    final JPanelConFondo ventanaPrincipal = new JPanelConFondo(fachada.mapa);
 	    ventanaPrincipal.addKeyListener(new KeyListener()
 	    {									// Clase interna implementando la interfaz KeyListener
@@ -115,7 +116,10 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 	            } else if(c==KeyEvent.VK_RIGHT) {   
 	            	direccion = Direccion.RIGHT;
 	            	new Movimiento(fachada.mapa, Direccion.RIGHT);  
-	            }
+	        	} else if(c==81) {   
+	        		fachada.mapa.setDiamantesEnMapa(0);
+	        	}
+
 	            Movimiento movemos = new Movimiento(fachada.mapa, direccion);
 	            ventanaPrincipal.setArrayImagen( (Mapa) movemos.siguienteMovimiento() );
 
@@ -123,9 +127,14 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 	        @Override
 	        public void keyReleased(KeyEvent e)	// tecla presionada (la última, y que ahora está suelta)
 	        {
-	        	if (VariablesGlobales.DIAMANTES == 0){
-            		JOptionPane.showMessageDialog(null, "¡Enhorabuena, has conseguido todos los diamantes!");
-            		System.exit(0);				// Salimos del juego (esta forma no le gusta a Eva :)
+	        	if (fachada.mapa.getDiamantesEnMapa() == 0){
+            		JOptionPane.showMessageDialog(null, "¡Enhorabuena, has conseguido todos los diamantes del nivel " + (fachada.nivelACargar - 1) + "!");
+            		//System.exit(0);				// Salimos del juego (esta forma no le gusta a Eva :)
+            		ArrayList<Entidad> entidades =CargadorNiveles.cargarNivel(ImprimirMapa.cargarSiguienteNivel(fachada.nivelACargar));
+            		fachada.nivelACargar++;
+            		fachada.arrayentidades = ImprimirMapa.convertirAArray(entidades);		
+            		fachada.setMapa( (Mapa) fachada.mapaFromEntidades(fachada.arrayentidades) );
+            		ventanaPrincipal.setArrayImagen(fachada.getMapa());
 	        	}
 	        }
 	        
@@ -135,7 +144,6 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 	        	//
 	           }
 	    });
-	                
 	                
 	               
 
