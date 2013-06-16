@@ -78,9 +78,6 @@ public class Mapa implements MapaInterface, Cloneable{
 				setDiamantesEnMapa(getDiamantesEnMapa() - 1);
 				dibujable.setFondo(contenido.getFondo());
 				mapa[x][y] = (Elementos) dibujable;
-				String filename = "src/es/iessaladillo/juegos/saladillo/music/diamante.mp3";
-	            MP3 mp3 = new MP3(filename);
-	            mp3.play();
 			}
 			else if (contenido.getTipoImagen().equals("Background") || 
 				(dibujable.getNombreImagen().equals("Heroe")) ){

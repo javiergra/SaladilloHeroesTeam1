@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import es.iessaladillo.juegos.saladillo.Acciones.*;
 import es.iessaladillo.juegos.saladillo.controller.*;
 import es.iessaladillo.juegos.saladillo.model.delegate.SaladilloFacadeDelegate;
+import es.iessaladillo.juegos.saladillo.music.MP3;
 import es.iessaladillo.juegos.saladillo.util.*;
 
 public class SaladilloFacade implements SaladilloFacadeDelegate {
@@ -85,10 +86,6 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 	}
 
 	public static void main (String[] args){
-		int i=0;
-		Direccion direccion;
-
-		//Entidad[] arrayentidades;
 		
 		final SaladilloFacade fachada = new SaladilloFacade();
 		
@@ -104,7 +101,9 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 	        @Override 
 	        public void keyPressed(KeyEvent e) // tecla presionada (en ese momento)
 	        {
+	        	int diamantes;
 	        	Direccion direccion = null;
+	        	
 	        	int c = e.getKeyCode ();
 	            if (c==KeyEvent.VK_UP) {     
 	            	direccion = Direccion.UP;
@@ -118,10 +117,14 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 	            	new Movimiento(fachada.mapa, Direccion.RIGHT);  
 	        	} else if(c==81) {   
 	        		fachada.mapa.setDiamantesEnMapa(0);
-	        	}
-
-	            Movimiento movemos = new Movimiento(fachada.mapa, direccion);
-	            ventanaPrincipal.setArrayImagen( (Mapa) movemos.siguienteMovimiento() );
+	        	} 
+	            diamantes = fachada.diamantesEnMapa();
+	            ventanaPrincipal.setArrayImagen( (Mapa) fachada.mover(direccion) );
+	            if (diamantes != fachada.diamantesEnMapa()){
+					String filename = "src/es/iessaladillo/juegos/saladillo/music/diamante.mp3";
+		            MP3 mp3 = new MP3(filename);
+		            mp3.play();
+	            }
 
 	        }
 	        @Override
