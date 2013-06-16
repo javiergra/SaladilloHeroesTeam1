@@ -3,6 +3,7 @@ package es.iessaladillo.juegos.saladillo.Acciones;
 import java.util.ArrayList;
 
 import es.iessaladillo.juegos.saladillo.controller.Mapa;
+import es.iessaladillo.juegos.saladillo.util.ConjuntoPosiciones;
 import es.iessaladillo.juegos.saladillo.util.Posicion;
 
 public class PosicionesAActualizarAccion implements Accion {
@@ -15,8 +16,13 @@ public class PosicionesAActualizarAccion implements Accion {
 
 	@Override
 	public Object execute() {
+		ConjuntoPosiciones conjunto = new ConjuntoPosiciones();
 		
-		return posiciones;
+		for (int i = 0; i < posiciones.size(); i++){
+			conjunto.anhadirPosicion(posiciones.get(i));
+		}
+		
+		return conjunto;
 	}
 
 }

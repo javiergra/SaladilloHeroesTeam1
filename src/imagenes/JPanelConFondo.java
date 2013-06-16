@@ -2,6 +2,8 @@ package imagenes;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
@@ -11,6 +13,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 import es.iessaladillo.juegos.saladillo.controller.Grafico;
@@ -41,11 +44,22 @@ public class JPanelConFondo extends JFrame {
     	
     	Grafico grafico;
     	
-        this.setSize(448, 470);
+        this.setSize(448, 670);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); 
         
+        JButton btnNewButton = new JButton("New button");
+		btnNewButton.setBounds(50, 500, 117, 100);
+		btnNewButton.setVisible(true);
+		btnNewButton.setFocusable(false);
+		this.add(btnNewButton);
+		
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Hola!");
+			}
+		});
     
     	
         if (mapa != null) {
