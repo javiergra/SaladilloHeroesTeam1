@@ -29,7 +29,7 @@ public class Movimiento {
 		mapa.ponerElemento(posicionHeroe, null);
 		if (heroe.getFondo() != null)
 			mapa.ponerElemento(posicionHeroe, elemento);
-		mapa.posiciones.add(posicionHeroe);	// Añadimos la posición que tenemos que "refrescar".
+		mapa.posiciones.add(new Posicion(posicionHeroe.getX(), posicionHeroe.getY()) );	// Añadimos la posición que tenemos que "refrescar".
 	
 		posicionHeroe = mapa.siguientePosicion(posicionHeroe, direccion);	
 		elemento =mapa.obtenerPosicion(posicionHeroe);
