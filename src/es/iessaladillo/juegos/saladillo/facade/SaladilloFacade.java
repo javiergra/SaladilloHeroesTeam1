@@ -129,7 +129,6 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 	        {
 	        	if (fachada.mapa.getDiamantesEnMapa() == 0){
             		JOptionPane.showMessageDialog(null, "¡Enhorabuena, has conseguido todos los diamantes del nivel " + (fachada.nivelACargar - 1) + "!");
-            		//System.exit(0);				// Salimos del juego (esta forma no le gusta a Eva :)
             		ArrayList<Entidad> entidades =CargadorNiveles.cargarNivel(ImprimirMapa.cargarSiguienteNivel(fachada.nivelACargar));
             		fachada.nivelACargar++;
             		fachada.arrayentidades = ImprimirMapa.convertirAArray(entidades);		

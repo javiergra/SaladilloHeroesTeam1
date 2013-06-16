@@ -60,18 +60,19 @@ public class Mapa implements MapaInterface, Cloneable{
 		x = posicion.getX();
 		y = posicion.getY();
 		
+		
+		if ( dibujable != null && dibujable.getNombreImagen().equals("Heroe")){	// Guardamos la posición del héroe.
+			posicionHeroe.setX(x);
+			posicionHeroe.setY(y);
+		}
+		else if (dibujable != null && dibujable.getNombreImagen().equals("Diamante")) // Si es un diamante, lo "contamos"
+			setDiamantesEnMapa(getDiamantesEnMapa() + 1);
+		
 		if (dibujable == null)
-			mapa[x][y] = null;
+			mapa[x][y] = null;	
 		else if (mapa[x][y] == null )
 			mapa[x][y] = (Elementos) dibujable;
 		else{
-			if (dibujable.getNombreImagen().equals("Heroe")){
-				posicionHeroe.setX(x);
-				posicionHeroe.setY(y);
-			}
-			else if (dibujable.getNombreImagen().equals("Diamante"))
-				setDiamantesEnMapa(getDiamantesEnMapa() + 1);
-			
 			contenido = mapa[x][y];
 			if (dibujable.getNombreImagen().equals("Heroe") && contenido.getNombreImagen().equals("Diamante")){
 				setDiamantesEnMapa(getDiamantesEnMapa() - 1);

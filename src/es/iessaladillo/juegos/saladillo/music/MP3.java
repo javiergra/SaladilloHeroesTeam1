@@ -62,7 +62,7 @@ public class MP3 {
 
     }
 
-
+/*
     // test client
     public static void main(String[] args) {
         String filename = "src/juego.mp3";
@@ -87,7 +87,7 @@ public class MP3 {
        // mp3.play();
 
     }
-
+*/
 }
 
 

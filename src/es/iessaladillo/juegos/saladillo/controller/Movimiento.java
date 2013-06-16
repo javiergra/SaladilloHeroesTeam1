@@ -17,17 +17,18 @@ public class Movimiento {
 	public MapaInterface siguienteMovimiento(){
 		
 	Posicion posicionHeroe, posicion, posicionMov;
-	Dibujable heroe, elemento;
+	Dibujable heroe, elemento = null;
 	
 	mapa.posiciones.clear();		// Limpiamos el Array antes de cada movimiento
 	posicionHeroe = mapa.getPosicionHeroe();
 	posicionMov = new Posicion(posicionHeroe.getX(), posicionHeroe.getY());
 	heroe = mapa.obtenerPosicion(posicionHeroe);
 	if (mapa.sePuedeMover(posicionMov, direccion, (byte) 0)){
-		
-		elemento = heroe.getFondo();
+		if (heroe.getFondo() != null)
+			elemento = heroe.getFondo();
 		mapa.ponerElemento(posicionHeroe, null);
-		mapa.ponerElemento(posicionHeroe, elemento);
+		if (heroe.getFondo() != null)
+			mapa.ponerElemento(posicionHeroe, elemento);
 		mapa.posiciones.add(posicionHeroe);	// Añadimos la posición que tenemos que "refrescar".
 	
 		posicionHeroe = mapa.siguientePosicion(posicionHeroe, direccion);	

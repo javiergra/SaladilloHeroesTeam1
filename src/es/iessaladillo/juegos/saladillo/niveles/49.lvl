@@ -229,7 +229,7 @@
   <entity type="Arbol" x="32" y="224"/>
   <entity type="Arbol" x="0" y="224"/>
   <entity type="Casa" x="416" y="0"/>
-  <entity type="Heroina" x="416" y="32"/>
+  <entity type="Heroe" x="416" y="32"/>
   <entity type="TeletransporteRojo" x="64" y="0"/>
   <entity type="Cesped" x="256" y="32"/>
   <entity type="Caja" x="384" y="0"/>

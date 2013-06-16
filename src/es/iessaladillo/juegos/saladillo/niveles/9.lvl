@@ -275,7 +275,7 @@
   <entity type="PelotaAzul" x="0" y="96"/>
   <entity type="RocaSuelo" x="0" y="0"/>
   <entity type="RocaSuelo" x="32" y="0"/>
-  <entity type="PelotaAzul" x="32" y="64"/>
+  <entity type="Diamante" x="32" y="64"/>
   <entity type="RocaSuelo" x="32" y="32"/>
   <entity type="PelotaAzul" x="64" y="32"/>
   <entity type="RocaSuelo" x="96" y="96"/>
@@ -290,7 +290,7 @@
   <entity type="Diamante" x="96" y="128"/>
   <entity type="RocaSuelo" x="224" y="0"/>
   <entity type="RocaSuelo" x="256" y="32"/>
-  <entity type="RocaSuelo" x="256" y="64"/>
+  <entity type="RocaSuelo" x="288" y="64"/>
   <entity type="RocaSuelo" x="288" y="128"/>
   <entity type="RocaSuelo" x="288" y="96"/>
   <entity type="RocaSuelo" x="192" y="96"/>
