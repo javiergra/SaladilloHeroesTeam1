@@ -114,7 +114,6 @@ public class JPanelConFondo extends JFrame {
 	            				"<p>&emsp;&emsp;Una mención especial a Javier Graña y Eva Peralta, profesores del centro, sin" +
 	            				" los que aprender hubiese sido más difícil e infinitamente más aburrido." +
 	            				"<br><br>&#09;&#09;&emsp;&emsp;&emsp;Junio de 2013</html>");
-				System.out.println("acerca de!");
 			}
 		});
 

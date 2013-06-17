@@ -36,6 +36,22 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 		this.mapa = mapa;
 	}
 
+	public Entidad[] getArrayentidades() {
+		return arrayentidades;
+	}
+
+	public void setArrayentidades(Entidad[] arrayentidades) {
+		this.arrayentidades = arrayentidades;
+	}
+
+	public byte getNivelACargar() {
+		return nivelACargar;
+	}
+
+	public void setNivelACargar(byte nivelACargar) {
+		this.nivelACargar = nivelACargar;
+	}
+
 	@Override
 	public MapaInterface mapaFromEntidades(Entidad[] entidades) {
 		Accion accion=new MapaFromEntidadesAccion(entidades);
@@ -85,99 +101,5 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 		return (ConjuntoPosiciones) accion.execute();
 	}
 
-	public static void main (String[] args){
-		
-		final SaladilloFacade fachada = new SaladilloFacade();
-		
-		ArrayList<Entidad> entidades =CargadorNiveles.cargarNivel(ImprimirMapa.cargarSiguienteNivel(fachada.nivelACargar));
-		fachada.nivelACargar++;
-		fachada.arrayentidades = ImprimirMapa.convertirAArray(entidades);		
-		fachada.setMapa( (Mapa) fachada.mapaFromEntidades(fachada.arrayentidades) );
-		
-	    final JPanelConFondo ventanaPrincipal = new JPanelConFondo(fachada.mapa);
-	    ventanaPrincipal.setResizable(false);
-	    ventanaPrincipal.addKeyListener(new KeyListener()
-	    {									// Clase interna implementando la interfaz KeyListener
-	       
-	        @Override 
-	        public void keyPressed(KeyEvent e) // tecla presionada (en ese momento)
-	        {
-	        	int diamantes;
-	        	Direccion direccion = null;
-	        	
-	        	diamantes = fachada.diamantesEnMapa();
-	        	
-	        	int c = e.getKeyCode ();
-	        	
-	            if (c==KeyEvent.VK_UP) {     
-	            	direccion = Direccion.UP;
-	            	ventanaPrincipal.setArrayImagen( (Mapa) fachada.mover(direccion) );
-	            } else if(c==KeyEvent.VK_DOWN) {      
-	            	direccion = Direccion.DOWN;
-	            	ventanaPrincipal.setArrayImagen( (Mapa) fachada.mover(direccion) );
-	            } else if(c==KeyEvent.VK_LEFT) {      
-	            	direccion = Direccion.LEFT;
-	            	ventanaPrincipal.setArrayImagen( (Mapa) fachada.mover(direccion) );
-	            } else if(c==KeyEvent.VK_RIGHT) {   
-	            	direccion = Direccion.RIGHT;
-	            	ventanaPrincipal.setArrayImagen( (Mapa) fachada.mover(direccion) );
-	        	} else if(c==81) {   
-	        		fachada.mapa.setDiamantesEnMapa(0);
-	        	} else if(c==82) {   					// música on/off.
-	        		if (ventanaPrincipal.getMp3() != null){
-	        			ventanaPrincipal.detenerMp3();
-	        			ventanaPrincipal.setMp3(null);
-	        		}
-	        		else{
-	        			String filename = "src/es/iessaladillo/juegos/saladillo/music/juego.mp3";
-	        			MP3 mp3 = new MP3(filename, true);
-	        			ventanaPrincipal.setMp3(mp3);
-	        			ventanaPrincipal.reproducirMp3();
-	        		}
-	        	} else if(c==69) {   					// Reinicio el nivel.
-	        		fachada.mapa.setDiamantesEnMapa(0);
-	        		fachada.nivelACargar--;
-	        		ArrayList<Entidad> entidades =CargadorNiveles.cargarNivel(ImprimirMapa.cargarSiguienteNivel(fachada.nivelACargar));
-            		fachada.nivelACargar++;
-            		fachada.arrayentidades = ImprimirMapa.convertirAArray(entidades);	
-            		fachada.setMapa( (Mapa) fachada.mapaFromEntidades(fachada.arrayentidades) );
-            		fachada.mapa.setPosiciones(null);
-            		ventanaPrincipal.setArrayImagen(fachada.getMapa());
-	        	} 
-	            
-	            if (diamantes != fachada.diamantesEnMapa()){
-					String filename = "src/es/iessaladillo/juegos/saladillo/music/diamante.mp3";
-		            MP3 mp3d = new MP3(filename);
-		            mp3d.play();
-	            }
-
-	        }
-	        @Override
-	        public void keyReleased(KeyEvent e)	// tecla presionada (la última, y que ahora está suelta)
-	        {
-	        	//System.out.println(e);
-	        	if (fachada.mapa.getDiamantesEnMapa() == 0){
-            		JOptionPane.showMessageDialog(null, "¡Enhorabuena, has conseguido todos los diamantes del nivel " + (fachada.nivelACargar - 1) + "!");
-            		ArrayList<Entidad> entidades =CargadorNiveles.cargarNivel(ImprimirMapa.cargarSiguienteNivel(fachada.nivelACargar));
-            		fachada.nivelACargar++;
-            		fachada.arrayentidades = ImprimirMapa.convertirAArray(entidades);	
-            		fachada.setMapa( (Mapa) fachada.mapaFromEntidades(fachada.arrayentidades) );
-            		fachada.mapa.setPosiciones(null);
-            		ventanaPrincipal.setArrayImagen(fachada.getMapa());
-	        	}
-	        }
-	        
-	        @Override
-	        public void keyTyped(KeyEvent e)
-	        {
-	        	//
-	           }
-	    });
-	                
-	               
-
-		
-		
-		
-	}
+	
 }
