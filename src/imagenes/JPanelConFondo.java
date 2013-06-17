@@ -1,15 +1,21 @@
 package imagenes;
 
+import java.awt.AWTException;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Robot;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
+import javax.swing.border.EmptyBorder;
+
 import es.iessaladillo.juegos.saladillo.controller.Grafico;
 import es.iessaladillo.juegos.saladillo.controller.Mapa;
 import es.iessaladillo.juegos.saladillo.music.MP3;
@@ -21,6 +27,7 @@ public class JPanelConFondo extends JFrame {
 
     private Grafico[][] ArrayImagen = new Grafico[14][14];
     private ArrayList<Posicion> posicionesARefrescar;
+    private MP3 mp3;
 
     public JPanelConFondo() {
 
@@ -66,14 +73,24 @@ public class JPanelConFondo extends JFrame {
 		
 		reiniciarNivel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			
-				System.out.println("reinicia!!!!");
+				
+				try {
+					Robot robot = new Robot();
+					robot.keyPress(KeyEvent.VK_E);	// Presionamos la tecla E
+				} catch (AWTException e) {
+					e.printStackTrace();
+				}
 			}
 		});
 		
 		musiquilla.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("musica!!");
+				try {
+					Robot robot = new Robot();
+					robot.keyPress(KeyEvent.VK_R);	// Presionamos la tecla R
+				} catch (AWTException e) {
+					e.printStackTrace();
+				}
 			}
 		});
 		
@@ -86,6 +103,7 @@ public class JPanelConFondo extends JFrame {
 	            dialogo.setVisible(true);
 	            JLabel etiqueta = new JLabel();
 	            dialogo.add(etiqueta);
+	            etiqueta.setBorder(new EmptyBorder(10, 10, 10, 10));
 	            etiqueta.setBounds(25, 25, 250, 280);
 	            etiqueta.setVisible(true);
 	            etiqueta.setVerticalAlignment(SwingConstants.TOP);
@@ -113,12 +131,10 @@ public class JPanelConFondo extends JFrame {
         }
         
         repaint();
-        
-
-            String filename = "src/es/iessaladillo/juegos/saladillo/music/juego.mp3";
-            MP3 mp3 = new MP3(filename);
-            mp3.play();
-      
+        String filename = "src/es/iessaladillo/juegos/saladillo/music/juego.mp3";
+		MP3 mp3 = new MP3(filename);
+		this.mp3 = mp3;
+		reproducirMp3();
         
     }
 
@@ -155,6 +171,23 @@ public class JPanelConFondo extends JFrame {
         this.ArrayImagen = ArrayImagen;
 
         repaint();
+    }
+    
+    public void setMp3(MP3 mp3){
+    	this.mp3 = mp3;
+    }
+    
+    public MP3 getMp3(){
+    	return mp3;
+    }
+    
+    public void reproducirMp3(){
+    	if (mp3 != null)
+    		mp3.play();
+    }
+    
+    public void detenerMp3(){
+    	mp3.close();
     }
 
     @Override
