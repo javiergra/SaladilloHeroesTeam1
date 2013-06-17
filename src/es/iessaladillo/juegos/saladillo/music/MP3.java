@@ -29,13 +29,24 @@ import javazoom.jl.player.Player;
 public class MP3 {
     private String filename;
     private Player player; 
+    private boolean loop;
 
     // constructor that takes the name of an MP3 file
     public MP3(String filename) {
         this.filename = filename;
     }
+    
+    public MP3(String filename, boolean loop) {
+        this.filename = filename;
+        this.loop = loop;
+    }
 
-    public void close() { if (player != null) player.close(); }
+    public void close() {
+    	if (player != null){ 
+    		player.close(); 
+    		loop = false;
+    	}
+    	}
 
     // play the MP3 file to the sound card
     public void play() {
@@ -52,7 +63,13 @@ public class MP3 {
         // run in new thread to play in background
         new Thread() {
             public void run() {
-                try { player.play(); }
+                try {
+                	 do {
+                         FileInputStream buff = new FileInputStream(filename);
+                         player = new Player(buff);
+                         player.play();
+                     } while (loop);
+                }
                 catch (Exception e) { System.out.println(e); }
             }
         }.start();

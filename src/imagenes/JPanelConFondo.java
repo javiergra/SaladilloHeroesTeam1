@@ -132,7 +132,7 @@ public class JPanelConFondo extends JFrame {
         
         repaint();
         String filename = "src/es/iessaladillo/juegos/saladillo/music/juego.mp3";
-		MP3 mp3 = new MP3(filename);
+		MP3 mp3 = new MP3(filename, true);
 		this.mp3 = mp3;
 		reproducirMp3();
         

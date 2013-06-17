@@ -95,7 +95,7 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 		fachada.setMapa( (Mapa) fachada.mapaFromEntidades(fachada.arrayentidades) );
 		
 	    final JPanelConFondo ventanaPrincipal = new JPanelConFondo(fachada.mapa);
-		
+	    ventanaPrincipal.setResizable(false);
 	    ventanaPrincipal.addKeyListener(new KeyListener()
 	    {									// Clase interna implementando la interfaz KeyListener
 	       
@@ -130,7 +130,7 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 	        		}
 	        		else{
 	        			String filename = "src/es/iessaladillo/juegos/saladillo/music/juego.mp3";
-	        			MP3 mp3 = new MP3(filename);
+	        			MP3 mp3 = new MP3(filename, true);
 	        			ventanaPrincipal.setMp3(mp3);
 	        			ventanaPrincipal.reproducirMp3();
 	        		}
