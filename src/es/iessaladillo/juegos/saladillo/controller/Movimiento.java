@@ -1,5 +1,7 @@
 package es.iessaladillo.juegos.saladillo.controller;
 
+import java.util.ArrayList;
+
 import imagenes.ImprimirMapa;
 import es.iessaladillo.juegos.saladillo.util.Direccion;
 import es.iessaladillo.juegos.saladillo.util.Posicion;
@@ -19,6 +21,8 @@ public class Movimiento {
 	Posicion posicionHeroe, posicion, posicionMov;
 	Dibujable heroe, elemento = null;
 	
+	if (mapa.posiciones == null)
+		mapa.posiciones = new ArrayList<Posicion>();
 	mapa.posiciones.clear();		// Limpiamos el Array antes de cada movimiento
 	posicionHeroe = mapa.getPosicionHeroe();
 	posicionMov = new Posicion(posicionHeroe.getX(), posicionHeroe.getY());
@@ -51,6 +55,7 @@ public class Movimiento {
 	else if (heroe.getFondo().getNombreClase().equals("Teletransporte")){	// Si un elemento "pilla" en una esquina
 		elemento = heroe.getFondo();										// y no podemos movernos, al darle hacia
 		mapa.ponerElemento(posicionHeroe, null);							// un lado, aunque no se pueda mover
+		mapa.posiciones.add(new Posicion(posicionHeroe.getX(), posicionHeroe.getY()) );
 		mapa.ponerElemento(posicionHeroe, elemento);						// vuelve a usar ese mismo teletransporte.
 		posicionHeroe = ImprimirMapa.nuevoTeletransporte(mapa, posicionHeroe, elemento.getNombreImagen());
 		mapa.ponerElemento(posicionHeroe, heroe);

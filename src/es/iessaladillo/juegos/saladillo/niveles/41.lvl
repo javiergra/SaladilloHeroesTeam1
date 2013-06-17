@@ -325,7 +325,7 @@
   <entity type="Cesped" x="96" y="64"/>
   <entity type="Cesped" x="64" y="64"/>
   <entity type="PelotaVerde" x="96" y="32"/>
-  <entity type="PelotaVerde" x="96" y="64"/>
+
   <entity type="Arbol" x="0" y="96"/>
   <entity type="Arbol" x="0" y="64"/>
   <entity type="Arbol" x="0" y="0"/>

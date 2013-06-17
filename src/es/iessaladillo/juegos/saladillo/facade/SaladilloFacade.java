@@ -18,7 +18,7 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 	private Mapa mapaInicial = new Mapa();
 	private Mapa mapa = new Mapa();
 	private Entidad[] arrayentidades;
-	private byte nivelACargar = 1;
+	private byte nivelACargar = 0;
 	
 	public Mapa getMapaInicial() {
 		return mapaInicial;
@@ -134,8 +134,9 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
             		JOptionPane.showMessageDialog(null, "¡Enhorabuena, has conseguido todos los diamantes del nivel " + (fachada.nivelACargar - 1) + "!");
             		ArrayList<Entidad> entidades =CargadorNiveles.cargarNivel(ImprimirMapa.cargarSiguienteNivel(fachada.nivelACargar));
             		fachada.nivelACargar++;
-            		fachada.arrayentidades = ImprimirMapa.convertirAArray(entidades);		
+            		fachada.arrayentidades = ImprimirMapa.convertirAArray(entidades);	
             		fachada.setMapa( (Mapa) fachada.mapaFromEntidades(fachada.arrayentidades) );
+            		fachada.mapa.setPosiciones(null);
             		ventanaPrincipal.setArrayImagen(fachada.getMapa());
 	        	}
 	        }

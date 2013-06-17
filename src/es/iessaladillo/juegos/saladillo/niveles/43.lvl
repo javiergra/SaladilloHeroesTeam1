@@ -199,7 +199,6 @@
   <entity type="Arbol" x="96" y="128"/>
   <entity type="Arbol" x="64" y="160"/>
   <entity type="Arbol" x="32" y="192"/>
-  <entity type="Arbol" x="256" y="32"/>
   <entity type="Arbol" x="288" y="64"/>
   <entity type="Arbol" x="320" y="96"/>
   <entity type="Arbol" x="352" y="128"/>
@@ -286,7 +285,6 @@
   <entity type="RocaSuelo" x="224" y="384"/>
   <entity type="Diamante" x="256" y="384"/>
   <entity type="Caja" x="320" y="384"/>
-  <entity type="RocaSuelo" x="256" y="320"/>
   <entity type="RocaSuelo" x="288" y="256"/>
   <entity type="Caja" x="192" y="384"/>
   <entity type="Caja" x="64" y="320"/>
@@ -315,4 +313,5 @@
   <entity type="PelotaAzul" x="64" y="0"/>
   <entity type="Caja" x="128" y="0"/>
   <entity type="Caja" x="96" y="320"/>
+  <entity type="Heroe" x="0" y="416"/>
 </level>

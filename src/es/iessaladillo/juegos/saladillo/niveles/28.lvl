@@ -211,7 +211,7 @@
   <entity type="Arbol" x="32" y="0"/>
   <entity type="RocaSuelo" x="64" y="0"/>
   <entity type="Edificio2" x="160" y="96"/>
-  <entity type="Edificio" x="160" y="64"/>
+
   <entity type="Arbol" x="160" y="32"/>
   <entity type="Arbol" x="160" y="0"/>
   <entity type="PelotaAzul" x="128" y="96"/>
@@ -282,8 +282,6 @@
   <entity type="Arbol" x="416" y="256"/>
   <entity type="Arbol" x="384" y="256"/>
   <entity type="Arbol" x="352" y="256"/>
-  <entity type="RocaSuelo" x="288" y="256"/>
-  <entity type="RocaSuelo" x="288" y="224"/>
   <entity type="RocaSuelo" x="256" y="224"/>
   <entity type="RocaSuelo" x="224" y="224"/>
   <entity type="RocaSuelo" x="224" y="384"/>
@@ -311,7 +309,6 @@
   <entity type="RocaSuelo" x="0" y="256"/>
   <entity type="RocaSuelo" x="32" y="288"/>
   <entity type="PelotaAzul" x="64" y="288"/>
-  <entity type="RocaSuelo" x="64" y="384"/>
   <entity type="RocaSuelo" x="64" y="384"/>
   <entity type="RocaSuelo" x="32" y="384"/>
   <entity type="Arbol" x="64" y="416"/>

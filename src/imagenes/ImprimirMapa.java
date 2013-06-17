@@ -98,7 +98,7 @@ public class ImprimirMapa {
 		for (i = 0; i < 14; i++){
 			for (j = 0; j < 14; j++){
 				elemento = (Elementos) mapa.obtenerPosicion(new Posicion(i, j));
-				if (elemento.getNombreImagen().equals(nombreAR) && i != posicion.getX() && j != posicion.getY()){
+				if (elemento.getNombreImagen().equals(nombreAR) && (i != posicion.getX() || j != posicion.getY())){
 					posicionNueva = new Posicion(i, j);
 					listaTele.add(posicionNueva);
 				}

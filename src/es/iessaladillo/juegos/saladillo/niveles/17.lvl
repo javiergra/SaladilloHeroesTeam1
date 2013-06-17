@@ -228,8 +228,7 @@
   <entity type="Caja" x="160" y="384"/>
   <entity type="Diamante" x="64" y="352"/>
   <entity type="Diamante" x="0" y="352"/>
-  <entity type="TeletransporteRojo" x="0" y="416"/>
-  <entity type="Diamante" x="0" y="416"/>
+  <entity type="TeletransporteAzul" x="0" y="416"/>
   <entity type="Diamante" x="64" y="416"/>
   <entity type="Diamante" x="128" y="352"/>
   <entity type="Diamante" x="128" y="416"/>
