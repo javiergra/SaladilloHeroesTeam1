@@ -5,7 +5,10 @@ import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 import es.iessaladillo.juegos.saladillo.controller.Grafico;
 import es.iessaladillo.juegos.saladillo.controller.Mapa;
@@ -18,7 +21,6 @@ public class JPanelConFondo extends JFrame {
 
     private Grafico[][] ArrayImagen = new Grafico[14][14];
     private ArrayList<Posicion> posicionesARefrescar;
-    private Mapa mapaInicial;
 
     public JPanelConFondo() {
 
@@ -33,7 +35,6 @@ public class JPanelConFondo extends JFrame {
     	
     	super("Heroes del Saladillo (v.1.0)");
     	
-    	mapaInicial = (Mapa) mapa.clone();
     	Grafico grafico;
     	
         this.setSize(448, 510);
@@ -65,8 +66,8 @@ public class JPanelConFondo extends JFrame {
 		
 		reiniciarNivel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				mapaInicial.setPosiciones(null);
-				setArrayImagen(mapaInicial);
+			
+				System.out.println("reinicia!!!!");
 			}
 		});
 		
@@ -78,6 +79,23 @@ public class JPanelConFondo extends JFrame {
 		
 		acercaDe.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				JDialog dialogo = new JDialog();
+	            dialogo.setSize(320, 300);
+	            dialogo.setResizable(false);
+	            dialogo.setLocationRelativeTo(null);
+	            dialogo.setVisible(true);
+	            JLabel etiqueta = new JLabel();
+	            dialogo.add(etiqueta);
+	            etiqueta.setBounds(25, 25, 250, 280);
+	            etiqueta.setVisible(true);
+	            etiqueta.setVerticalAlignment(SwingConstants.TOP);
+	            etiqueta.setText("<html><h3>&#09;Héroes del Saladillo</h3><br>&emsp;&emsp;Este simpático juego ha sido" +
+	            				" diseñado y programado íntegramente por los alumnos de 1º de C.F.G.S. de" +
+	            				" Desarrollo de aplicaciones multiplataforma del I.E.S. Saladillo de Algeciras." +
+	            				"<p>&emsp;&emsp;Javi Naranjo, estudiante de la E.S.0., ha sido el diseñador gráfico del juego." +
+	            				"<p>&emsp;&emsp;Una mención especial a Javier Graña y Eva Peralta, profesores del centro, sin" +
+	            				" los que aprender hubiese sido más difícil e infinitamente más aburrido." +
+	            				"<br><br>&#09;&#09;&emsp;&emsp;&emsp;Junio de 2013</html>");
 				System.out.println("acerca de!");
 			}
 		});
