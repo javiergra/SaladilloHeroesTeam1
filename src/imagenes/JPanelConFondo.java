@@ -110,7 +110,7 @@ public class JPanelConFondo extends JFrame {
 	            etiqueta.setText("<html><h3>&#09;Héroes del Saladillo</h3><br>&emsp;&emsp;Este simpático juego ha sido" +
 	            				" diseñado y programado íntegramente por los alumnos de 1º de C.F.G.S. de" +
 	            				" Desarrollo de aplicaciones multiplataforma del I.E.S. Saladillo de Algeciras." +
-	            				"<p>&emsp;&emsp;Javi Naranjo, estudiante de la E.S.0., ha sido el diseñador gráfico del juego." +
+	            				"<p>&emsp;&emsp;Javi Naranjo, estudiante de Grado Medio, ha sido el diseñador gráfico del juego." +
 	            				"<p>&emsp;&emsp;Una mención especial a Javier Graña y Eva Peralta, profesores del centro, sin" +
 	            				" los que aprender hubiese sido más difícil e infinitamente más aburrido." +
 	            				"<br><br>&#09;&#09;&emsp;&emsp;&emsp;Junio de 2013</html>");
