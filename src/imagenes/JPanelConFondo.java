@@ -4,15 +4,6 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
-
-import javax.print.DocFlavor.URL;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
@@ -20,22 +11,19 @@ import es.iessaladillo.juegos.saladillo.controller.Grafico;
 import es.iessaladillo.juegos.saladillo.controller.Mapa;
 import es.iessaladillo.juegos.saladillo.music.MP3;
 import es.iessaladillo.juegos.saladillo.util.Posicion;
-
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
 import java.util.ArrayList;
 
-import javazoom.jl.player.Player;
-
+@SuppressWarnings("serial")
 public class JPanelConFondo extends JFrame {
 
     private Grafico[][] ArrayImagen = new Grafico[14][14];
     private ArrayList<Posicion> posicionesARefrescar;
+    private Mapa mapaInicial;
 
     public JPanelConFondo() {
 
     	super("Heroes del Saladillo (v.1.0)");
-        this.setSize(448, 470);
+        this.setSize(448, 510);
         this.setVisible(true);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); 
         this.setLocationRelativeTo(null); 
@@ -45,35 +33,56 @@ public class JPanelConFondo extends JFrame {
     	
     	super("Heroes del Saladillo (v.1.0)");
     	
+    	mapaInicial = (Mapa) mapa.clone();
     	Grafico grafico;
     	
-        this.setSize(448, 470);
+        this.setSize(448, 510);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); 
-       /* 
-        JButton btnNewButton = new JButton();
-		btnNewButton.setBounds(50, 500, 117, 100);
-		btnNewButton.setVisible(true);
-		btnNewButton.setFocusable(false);
-		btnNewButton.setText("Pulsar Aquí");
+       
+        final JButton reiniciarNivel = new JButton();
+        reiniciarNivel.setBounds(20, 449, 126, 40);
+        reiniciarNivel.setVisible(true);
+        reiniciarNivel.setFocusable(false);
+        reiniciarNivel.setText("Reiniciar nivel");
 		
-		JButton btnNewButton2 = new JButton();
-		btnNewButton2.setBounds(250, 500, 117, 100);
-		btnNewButton2.setVisible(true);
-		btnNewButton2.setFocusable(false);
-		btnNewButton2.setText("Pulsar Aquí 2");
+		final JButton musiquilla = new JButton();
+		musiquilla.setBounds(156, 449, 126, 40);
+		musiquilla.setVisible(true);
+		musiquilla.setFocusable(false);
+		musiquilla.setText("Música on/off");
 		
-		this.add(btnNewButton);
-		this.add(btnNewButton2);
-		//this.setFocusable(true);
+		final JButton acercaDe = new JButton();
+		acercaDe.setBounds(292, 449, 126, 40);
+		acercaDe.setVisible(true);
+		acercaDe.setFocusable(false);
+		acercaDe.setText("Acerca de...");
 		
-		btnNewButton.addActionListener(new ActionListener() {
+		this.add(reiniciarNivel);
+		this.add(musiquilla);
+		this.add(acercaDe);
+		
+		reiniciarNivel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Hola!");
+				mapaInicial.setPosiciones(null);
+				setArrayImagen(mapaInicial);
 			}
 		});
-    */
+		
+		musiquilla.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("musica!!");
+			}
+		});
+		
+		acercaDe.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("acerca de!");
+			}
+		});
+
+    
     	
         if (mapa != null) {
         	for (int i = 0; i < 14; i++){
@@ -138,6 +147,7 @@ public class JPanelConFondo extends JFrame {
     	Posicion posicion;
     	
     	try{
+    		
     		if ( posicionesARefrescar != null){
     			
     			for ( int i = 0; i < posicionesARefrescar.size(); i++){
@@ -151,6 +161,7 @@ public class JPanelConFondo extends JFrame {
     			}
     		}
     		else{
+    		super.paint(g);		// Pinta los botones
         	for (int i = 0; i < 14; i++){
         		for ( int j = 0; j < 14; j++){
         			grafico = ArrayImagen[i][j];

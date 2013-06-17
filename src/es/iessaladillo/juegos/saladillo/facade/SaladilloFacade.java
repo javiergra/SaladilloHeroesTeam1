@@ -18,7 +18,7 @@ public class SaladilloFacade implements SaladilloFacadeDelegate {
 	private Mapa mapaInicial = new Mapa();
 	private Mapa mapa = new Mapa();
 	private Entidad[] arrayentidades;
-	private byte nivelACargar = 0;
+	private byte nivelACargar = 1;
 	
 	public Mapa getMapaInicial() {
 		return mapaInicial;
